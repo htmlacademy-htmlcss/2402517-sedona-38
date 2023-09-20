@@ -1,7 +1,7 @@
 # Личный проект «Седона»
 
 * Студент: [Aleksey Fedorov](https://up.htmlacademy.ru/htmlcss/38/user/2402517).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Зиновьев](https://htmlacademy.ru/profile/id198751).
 
 ---
 
