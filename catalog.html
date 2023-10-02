@@ -111,7 +111,7 @@
       </header>
 
       <section class="hotels-section">
-        <header class="hotels-section-header">
+        <header class="hotels-header">
           <h2 class="visually-hidden">Подходящие гостиницы</h2>
           <p class="filter-results">Найдено гостиниц:
             <span class="found-hotels">38</span>
@@ -139,6 +139,7 @@
             </li>
           </ul>
         </header>
+
         <ul class="hotel-list">
           <li class="hotel-card">
             <a class="hotel-card-link" href="#">
@@ -222,41 +223,44 @@
             <span class="button hotel-rating">Рейтинг: 5,0</span>
           </li>
         </ul>
+
+        <footer class="catalog-footer">
+          <ul class="pagination-list">
+            <li class="pagination-item button current-pagination-item">
+              <a class="pagination-link">1</a>
+            </li>
+            <li class="pagination-item button">
+              <a class="pagination-link" href="#">2</a>
+            </li>
+            <li class="pagination-item button">
+              <a class="pagination-link" href="#">3</a>
+            </li>
+            <li class="pagination-item button">
+              <a class="pagination-link" href="#">4</a>
+            </li>
+            <li class="pagination-item empty-pagination-item">
+              <a class="pagination-link">...</a>
+            </li>
+            <li class="pagination-item button">
+              <a class="pagination-link" href="#">10</a>
+            </li>
+          </ul>
+        </footer>
       </section>
-      <footer class="catalog-footer">
-        <ul class="pagination-list">
-          <li class="pagination-item button current-pagination-item">
-            <a class="pagination-link">1</a>
-          </li>
-          <li class="pagination-item button">
-            <a class="pagination-link" href="#">2</a>
-          </li>
-          <li class="pagination-item button">
-            <a class="pagination-link" href="#">3</a>
-          </li>
-          <li class="pagination-item button">
-            <a class="pagination-link" href="#">4</a>
-          </li>
-          <li class="pagination-item empty-pagination-item">
-            <a class="pagination-link">...</a>
-          </li>
-          <li class="pagination-item button">
-            <a class="pagination-link" href="#">10</a>
-          </li>
-        </ul>
-      </footer>
     </main>
+
     <footer class="page-footer">
-      <section class="newsletter">
-        <h2>Подпишитесь на рассылку</h2>
-        <p>Только полезная информация и никакого спама, честное бойскаутское!</p>
+      <section class="newsletter newsletter-background">
+        <h2 class="section-description-lead">Подпишитесь на рассылку</h2>
+        <p class="section-description">Только полезная информация и никакого спама, честное бойскаутское!</p>
         <form class="newsletter-form" action="https://echo.htmlacademy.ru/" method="post">
-          <input class="field" type="email" name="newsletter-email" placeholder="Ваш e-mail">
+          <input class="field" type="email" name="newsletter-email" placeholder="Ваш e-mail" required>
           <button class="button button-newsletter" type="submit">Подписаться</button>
         </form>
       </section>
+
       <section>
-        <h2 class="visually-hidden">Контакты</h2>
+        <h2 class="visually-hidden">Социальные сети</h2>
         <ul class="social-list">
           <li class="social-item">
             <a class="social-link" href="https://vk.com/htmlacademy">
@@ -274,9 +278,17 @@
             </a>
           </li>
         </ul>
+      </section>
+
+      <section>
+        <h2 class="visually-hidden">Контакты</h2>
         <a class="phone-link" href="tel:+78128121212">+7 (812) 812-12-12</a>
+      </section>
+
+      <section>
+        <h2 class="visually-hidden">Партнеры</h2>
         <a class="academy-link" href="https://htmlacademy.ru/">
-          <img class="academy-logo" src="#" alt="Логотип HTML Academy">
+          <img class="academy-logo" src="#" alt="Логотип HTML Academy.">
         </a>
       </section>
     </footer>
