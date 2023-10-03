@@ -97,8 +97,12 @@
             <!-- TODO: пофиксить после прохождения темы -->
             <fieldset class="catalog-filter-group">
               <legend class="catalog-filter-title">Стоимость, ₽:</legend>
-              <input class="price-input" type="number" name="min-price" placeholder="от" value="0">
-              <input class="price-input" type="number" name="max-price" placeholder="до" value="9000">
+              <label class="like-placeholder-from">
+                <input class="price-input" type="number" name="min-price" value="0">от
+              </label>
+              <label class="like-placeholder-upto">
+                <input class="price-input" type="number" name="max-price" value="9000">до
+              </label>
               <input class="price-input" type="range" name="toggle-price" min="0" max="13000" value="9000">
             </fieldset>
             <!--  -->
