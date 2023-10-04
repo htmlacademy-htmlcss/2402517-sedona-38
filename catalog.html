@@ -39,7 +39,8 @@
     </header>
 
     <main class="catalog-main">
-      <header class="catalog-header">
+      <!-- А может здесь отлично подойдёт тег <header>? Да не, фигня какая-то!  -->
+      <div class="catalog-header">
         <h1 class="catalog-title">Гостиницы Седоны</h1>
         <ol class="breadcrumbs">
           <li class="breadcrumbs-item">
@@ -52,71 +53,70 @@
           </li>
         </ol>
 
-        <section class="search-options">
-          <h2 class="visually-hidden">Параметры поиска гостиниц</h2>
-          <form class="catalog-filter" action="https://echo.htmlacademy.ru/" method="get">
-            <fieldset class="catalog-filter-group">
-              <legend class="catalog-filter-title">Инфраструктура:</legend>
-              <ul class="catalog-filter-list">
-                <li class="catalog-filter-item">
-                  <label class="control">
-                    <input class="control-input" type="checkbox" name="pool" checked>Бассейн
-                  </label>
-                </li>
-                <li class="catalog-filter-item">
-                  <label class="control">
-                    <input class="control-input" type="checkbox" name="parking" checked>Парковка
-                  </label>
-                </li>
-                <li class="catalog-filter-item">
-                  <label class="control">
-                    <input class="control-input" type="checkbox" name="wi-fi">Wi-Fi
-                  </label>
-                </li>
-              </ul>
-            </fieldset>
-            <fieldset class="catalog-filter-group">
-              <legend class="catalog-filter-title">Тип жилья:</legend>
-              <ul class="catalog-filter-list">
-                <li class="catalog-filter-item">
-                  <label class="control">
-                    <input class="control-input" type="radio" name="accommodation" value="hotel" checked>Гостиница
-                  </label>
-                </li>
-                <li class="catalog-filter-item">
-                  <label class="control">
-                    <input class="control-input" type="radio" name="accommodation" value="motel">Мотель
-                  </label>
-                </li>
-                <li class="catalog-filter-item">
-                  <label class="control">
-                    <input class="control-input" type="radio" name="accommodation" value="apartments">Апартаменты
-                  </label>
-                </li>
-              </ul>
-            </fieldset>
-            <!-- TODO: пофиксить после прохождения темы -->
-            <fieldset class="catalog-filter-group">
-              <legend class="catalog-filter-title">Стоимость, ₽:</legend>
-              <label class="like-placeholder-from">
-                <input class="price-input" type="number" name="min-price" value="0">от
-              </label>
-              <label class="like-placeholder-upto">
-                <input class="price-input" type="number" name="max-price" value="9000">до
-              </label>
-              <input class="price-input" type="range" name="toggle-price" min="0" max="13000" value="9000">
-            </fieldset>
-            <!--  -->
-            <p class="catalog-filter-buttons">
-              <button class="button catalog-filter-accept button-brand" type="submit">Применить</button>
-              <button class="button catalog-filter-reset" type="reset">Сбросить</button>
-            </p>
-          </form>
-        </section>
-      </header>
+        <h2 class="visually-hidden">Параметры поиска гостиниц</h2>
+        <form class="catalog-filter" action="https://echo.htmlacademy.ru/" method="get">
+          <fieldset class="catalog-filter-group">
+            <legend class="catalog-filter-title">Инфраструктура:</legend>
+            <ul class="catalog-filter-list">
+              <li class="catalog-filter-item">
+                <label class="control">
+                  <input class="control-input" type="checkbox" name="pool" checked>Бассейн
+                </label>
+              </li>
+              <li class="catalog-filter-item">
+                <label class="control">
+                  <input class="control-input" type="checkbox" name="parking" checked>Парковка
+                </label>
+              </li>
+              <li class="catalog-filter-item">
+                <label class="control">
+                  <input class="control-input" type="checkbox" name="wi-fi">Wi-Fi
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="catalog-filter-group">
+            <legend class="catalog-filter-title">Тип жилья:</legend>
+            <ul class="catalog-filter-list">
+              <li class="catalog-filter-item">
+                <label class="control">
+                  <input class="control-input" type="radio" name="accommodation" value="hotel" checked>Гостиница
+                </label>
+              </li>
+              <li class="catalog-filter-item">
+                <label class="control">
+                  <input class="control-input" type="radio" name="accommodation" value="motel">Мотель
+                </label>
+              </li>
+              <li class="catalog-filter-item">
+                <label class="control">
+                  <input class="control-input" type="radio" name="accommodation" value="apartments">Апартаменты
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+          <!-- TODO: пофиксить после прохождения темы -->
+          <fieldset class="catalog-filter-group">
+            <legend class="catalog-filter-title">Стоимость, ₽:</legend>
+            <label class="like-placeholder-from">
+              <input class="price-input" type="number" name="min-price" value="0">от
+            </label>
+            <label class="like-placeholder-upto">
+              <input class="price-input" type="number" name="max-price" value="9000">до
+            </label>
+            <input class="price-input" type="range" name="toggle-price" min="0" max="13000" value="9000">
+          </fieldset>
+          <!--  -->
+          <p class="catalog-filter-buttons">
+            <button class="button catalog-filter-accept button-brand" type="submit">Применить</button>
+            <button class="button catalog-filter-reset" type="reset">Сбросить</button>
+          </p>
+        </form>
+      </div>
 
       <section class="hotels-section">
-        <header class="hotels-header">
+
+        <div class="hotels-header">
           <h2 class="filter-results hotel-section-title">Найдено гостиниц: 38</h2>
           <select class="control-select" aria-label="Сортировка">
             <option value="popular">Сначала популярные</option>
@@ -140,7 +140,7 @@
               </a>
             </li>
           </ul>
-        </header>
+        </div>
 
         <ul class="hotel-list">
           <li class="hotel-card">
@@ -228,7 +228,7 @@
           </li>
         </ul>
 
-        <footer class="catalog-footer">
+        <div class="catalog-footer">
           <ul class="pagination-list">
             <li class="pagination-item button current-pagination-item">
               <a class="pagination-link">1</a>
@@ -249,7 +249,7 @@
               <a class="pagination-link" href="#">10</a>
             </li>
           </ul>
-        </footer>
+        </div>
       </section>
     </main>
 
@@ -263,8 +263,7 @@
         </form>
       </section>
 
-      <section>
-        <h2 class="visually-hidden">Социальные сети</h2>
+      <div class="footer-wrapper">
         <ul class="social-list">
           <li class="social-item">
             <a class="social-link" href="https://vk.com/htmlacademy">
@@ -282,19 +281,13 @@
             </a>
           </li>
         </ul>
-      </section>
 
-      <section>
-        <h2 class="visually-hidden">Контакты</h2>
         <a class="phone-link" href="tel:+78128121212">+7 (812) 812-12-12</a>
-      </section>
 
-      <section>
-        <h2 class="visually-hidden">Партнеры</h2>
         <a class="academy-link" href="https://htmlacademy.ru/">
           <img class="academy-logo" src="#" alt="Логотип HTML Academy.">
         </a>
-      </section>
+      </div>
     </footer>
   </body>
 </html>
