@@ -83,3 +83,16 @@ img {
   text-transform: uppercase;
   color: #ffffff;
 }
+
+/* Стили для Hero  */
+
+.hero {
+  background-image: url("../images/hero-background.jpg"); /* TODO: Разобраться почему обрезается низ, а при svg растягивается не на всю ширину */
+  background-color: #000000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 485px;
+}
+
+/* Стили для Advantures  */
