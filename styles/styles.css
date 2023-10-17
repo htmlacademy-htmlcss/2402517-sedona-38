@@ -14,6 +14,8 @@
   font-display: swap;
 }
 
+/* Общие стили */
+
 *,
 *::before,
 *::after {
@@ -24,8 +26,8 @@ body {
   font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
   line-height: 21px;
-  color: #333333;
   background-color: #f2f2f2;
+  color: #333333;
   margin: 0;
 }
 
@@ -54,8 +56,24 @@ img {
 }
 
 .button-brand {
-  background-color: #82B3D3;
+  background-color: #82b3d3;
 }
+
+.section-lead {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.section-description {
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+}
+
 
 /* Стили для Header */
 
@@ -87,12 +105,69 @@ img {
 /* Стили для Hero  */
 
 .hero {
+  height: 485px;
   background-image: url("../images/hero-background.jpg"); /* TODO: Разобраться почему обрезается низ, а при svg растягивается не на всю ширину */
   background-color: #000000;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 485px;
 }
 
-/* Стили для Advantures  */
+/* Стили для Advantages  */
+
+.advantages-lead {
+  width: 620px;
+}
+
+.advantages-description {
+  width: 651px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.advantages-card-title {
+  width: 175px;
+}
+
+.card-description {
+  text-align: center;
+}
+
+.advantages-card-description {
+  width: 230px;
+}
+
+.card-saturated {
+  width: 1200px;
+  background-color: #82b3d3;
+}
+
+.text-saturated {
+  color: #ffffff;
+}
+
+.advantages-img {
+  display: block;
+}
+
+/* Стили для Recommendations */
+
+.recommendations-lead {
+  width: 505px;
+}
+
+.recommendations-description {
+  width: 490px;
+}
+
+.recommendations-card-title,
+.recommendations-card-description {
+  width: 230px;
+}
