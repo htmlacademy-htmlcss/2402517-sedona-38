@@ -15,7 +15,6 @@
 }
 
 /* Общие стили */
-
 *,
 *::before,
 *::after {
@@ -23,12 +22,12 @@
 }
 
 body {
+  margin: 0;
   font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
   line-height: 21px;
-  background-color: #f2f2f2;
   color: #333333;
-  margin: 0;
+  background-color: #f2f2f2;
 }
 
 img {
@@ -45,10 +44,16 @@ img {
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 8px 50px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
   border-radius: 4px;
+  border: none;
 }
 
 .button-primory {
@@ -76,34 +81,20 @@ img {
 
 
 /* Стили для Header */
-
-.page-header {
-  color: #000000;
-}
-
 .navigation-link {
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
-  text-align:center;
+  text-align: center;
   text-decoration: none;
-  color: inherit;
+  color: #000000;
 }
 
 .button-wanna-here {
-  width: 160px;
-  height: 36px;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 20px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #ffffff;
+  padding: 8px 34px;
 }
 
 /* Стили для Hero  */
-
 .hero {
   height: 485px;
   background-image: url("../images/hero-background.jpg"); /* TODO: Разобраться почему обрезается низ, а при svg растягивается не на всю ширину */
@@ -114,7 +105,6 @@ img {
 }
 
 /* Стили для Advantages  */
-
 .advantages-lead {
   width: 620px;
 }
@@ -149,7 +139,7 @@ img {
   background-color: #82b3d3;
 }
 
-.text-saturated {
+.text-contrast {
   color: #ffffff;
 }
 
@@ -158,7 +148,6 @@ img {
 }
 
 /* Стили для Recommendations */
-
 .recommendations-lead {
   width: 505px;
 }
@@ -170,4 +159,41 @@ img {
 .recommendations-card-title,
 .recommendations-card-description {
   width: 230px;
+}
+
+/* Cтили для Hotel-search */
+.hotel-search-lead,
+.hotel-search-description {
+  width: 592px;
+}
+
+.button-hotel-search,
+.button-newsletter {
+  font-size: 20px;
+  line-height: 36px;
+}
+
+/* Стили для Page-footer, Newsletter */
+.newsletter-background {
+  padding: 96px 258px 104px;
+  background-image: url("../images/subscribe-background.jpg");
+  background-color: #000000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.newsletter-lead,
+.newsletter-description {
+  width: 475px;
+}
+
+/* Стили для Footer-wrapper  */
+.phone-link {
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000000;
 }
