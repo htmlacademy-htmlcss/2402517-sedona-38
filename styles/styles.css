@@ -123,7 +123,7 @@ img {
 .hero {
   min-height: 485px;
   color: #ffffff;
-  background-image: url("../images/hero-flag.svg"), url("../images/hero-background.jpg"); /* TODO: Разобраться почему обрезается низ, а при svg растягивается не на всю ширину */
+  background-image: url("../images/hero-flag.svg"), url("../images/hero-background.jpg");
   background-color: #003905;
   background-size: contain, cover;
   background-repeat: no-repeat;
