@@ -279,6 +279,10 @@ img {
   line-height: 21px;
 }
 
+.sorting-option-link {
+  color: #000000;
+}
+
 .hotel-card-img {
   display: block;
 }
