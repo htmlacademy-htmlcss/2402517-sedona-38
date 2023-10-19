@@ -43,8 +43,10 @@ img {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
 }
 
+/* Кнопки */
 .button {
   padding: 8px 50px;
+  font-family: inherit;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -64,6 +66,11 @@ img {
   background-color: #82b3d3;
 }
 
+.button-applied {
+  background-color: #7db54f;
+}
+
+/* Заголовочные стили */
 .section-lead {
   font-size: 30px;
   font-weight: 700;
@@ -79,8 +86,26 @@ img {
   text-align: center;
 }
 
+/* Карты index */
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+}
 
-/* Стили для Header */
+.card-description {
+  text-align: center;
+}
+
+/* Контрастный текст */
+.text-contrast {
+  color: #ffffff;
+}
+
+/* Стили для index, Header */
 .navigation-link {
   font-size: 20px;
   font-weight: 700;
@@ -113,21 +138,8 @@ img {
   width: 651px;
 }
 
-.card-title {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 28px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #000000;
-}
-
 .advantages-card-title {
   width: 175px;
-}
-
-.card-description {
-  text-align: center;
 }
 
 .advantages-card-description {
@@ -139,9 +151,6 @@ img {
   background-color: #82b3d3;
 }
 
-.text-contrast {
-  color: #ffffff;
-}
 
 .advantages-img {
   display: block;
@@ -174,8 +183,10 @@ img {
 }
 
 /* Стили для Page-footer, Newsletter */
-.newsletter-background {
+.newsletter {
   padding: 96px 258px 104px;
+}
+.newsletter-background {
   background-image: url("../images/subscribe-background.jpg");
   background-color: #000000;
   background-size: cover;
@@ -196,4 +207,112 @@ img {
   text-decoration: none;
   text-transform: uppercase;
   color: #000000;
+}
+
+/* Стили для Catalog.html, catalog-header */
+.catalog-header {
+  padding: 35px 70px 70px;
+  background-image: url("../images/filters-background.jpg");
+  background-color: #000000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.catalog-title {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 78px;
+}
+
+.breadcrumbs-link {
+  font-size: 16;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Стили для Catalog-filter */
+.catalog-filter-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+
+.control {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.like-placeholder {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: right;
+  text-transform: lowercase;
+  color: #000000;
+  opacity: 0.3;
+}
+
+.price-input {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.catalog-filter-reset {
+  width: 191px;
+  background-color: transparent;
+}
+
+/* Стили для Hotels-section */
+.hotel-section-title {
+  text-align: start;
+}
+
+.control-select {
+  width: 292px;
+  height: 49px;
+  padding: 14px 20px;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.hotel-card-img {
+  display: block;
+}
+
+.hotel-title-link {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.accommodation-type {
+  text-align: end;
+}
+
+.hotel-rating {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #333333;
+  background-color: #f2f2f2;
+}
+
+.current-pagination-link {
+  color: #000000;
+  background-color: #f2f2f2;
+}
+
+.pagination-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
 }
