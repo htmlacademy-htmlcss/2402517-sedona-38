@@ -121,61 +121,27 @@ img {
 
 /* Стили для Hero  */
 .hero {
-  height: 485px;
-  background-image: url("../images/hero-background.jpg"); /* TODO: Разобраться почему обрезается низ, а при svg растягивается не на всю ширину */
-  background-color: #000000;
-  background-size: cover;
+  min-height: 485px;
+  color: #ffffff;
+  background-image: url("../images/hero-flag.svg"), url("../images/hero-background.jpg"); /* TODO: Разобраться почему обрезается низ, а при svg растягивается не на всю ширину */
+  background-color: #003905;
+  background-size: contain, cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom, center;
 }
 
 /* Стили для Advantages  */
-.advantages-lead {
-  width: 620px;
-}
-
-.advantages-description {
-  width: 651px;
-}
-
-.advantages-card-title {
-  width: 175px;
-}
-
-.advantages-card-description {
-  width: 230px;
-}
-
 .card-saturated {
-  width: 1200px;
   background-color: #82b3d3;
 }
-
 
 .advantages-img {
   display: block;
 }
 
 /* Стили для Recommendations */
-.recommendations-lead {
-  width: 505px;
-}
-
-.recommendations-description {
-  width: 490px;
-}
-
-.recommendations-card-title,
-.recommendations-card-description {
-  width: 230px;
-}
 
 /* Cтили для Hotel-search */
-.hotel-search-lead,
-.hotel-search-description {
-  width: 592px;
-}
-
 .button-hotel-search,
 .button-newsletter {
   font-size: 20px;
@@ -192,11 +158,6 @@ img {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.newsletter-lead,
-.newsletter-description {
-  width: 475px;
 }
 
 /* Стили для Footer-wrapper  */
@@ -226,7 +187,7 @@ img {
 }
 
 .breadcrumbs-link {
-  font-size: 16;
+  font-size: 16px;
   text-decoration: none;
   color: inherit;
 }
@@ -261,7 +222,6 @@ img {
 }
 
 .catalog-filter-reset {
-  width: 191px;
   background-color: transparent;
 }
 
@@ -271,8 +231,6 @@ img {
 }
 
 .control-select {
-  width: 292px;
-  height: 49px;
   padding: 14px 20px;
   font-family: inherit;
   font-size: 18px;
