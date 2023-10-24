@@ -41,6 +41,19 @@ img {
   object-fit: contain;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .page-container {
   display: flex;
   flex-direction: column;
@@ -111,6 +124,59 @@ img {
 }
 
 /* Стили для index, Header */
+.page-header {
+  display: flex;
+  align-items: center;
+  width: 1200px;
+  padding: 0 70px;
+}
+
+.logo-link {
+  z-index: 1;
+  display: block;
+  align-self: start;
+  width: 140px;
+  margin-right: 28px;
+  margin-bottom: -10px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  width: 892px;
+}
+
+.navigation-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation-main {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 350px;
+  margin-right: auto;
+}
+
+.navigation-main .navigation-link {
+  display: block;
+  padding: 20px 16px;
+}
+
+.navigation-user {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  min-width: 100px;
+  margin-right: 20px;
+}
+
+.navigation-user .navigation-link {
+  display: block;
+  padding: 22px 12px;
+}
+
 .navigation-link {
   font-size: 20px;
   font-weight: 700;
@@ -120,8 +186,72 @@ img {
   color: #000000;
 }
 
+.search {
+  position: relative;
+  width: 44px;
+}
+
+.search::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("../images/interface/search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.favorites {
+  position: relative;
+  width: 44px;
+}
+
+.favorites::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("../images/interface/favorites.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.favorites::after {
+  content: "12";
+  position: absolute;
+  top: 0;
+  right: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  color: #ffffff;
+  background-color: #7db54f;
+  border-radius: 50%;
+}
+
 .button-wanna-here {
   padding: 8px 34px;
+  min-width: 160px;
+}
+
+.current-navigation-item {
+  z-index: 1;
+  text-decoration: underline;
+  text-decoration-color: #756257;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 19.4px;
+  text-underline-position: under;
 }
 
 /* Стили для Hero  */
