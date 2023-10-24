@@ -56,7 +56,7 @@ img {
   color: #ffffff;
   background-color: #756157;
   border-radius: 4px;
-  border: none;
+  border: 0;
 }
 
 .button-brand {
