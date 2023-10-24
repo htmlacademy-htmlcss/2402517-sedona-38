@@ -54,12 +54,9 @@ img {
   text-decoration: none;
   text-transform: uppercase;
   color: #ffffff;
+  background-color: #756157;
   border-radius: 4px;
   border: none;
-}
-
-.button-primory {
-  background-color: #756157;
 }
 
 .button-brand {
