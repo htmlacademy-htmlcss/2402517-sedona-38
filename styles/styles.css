@@ -97,11 +97,6 @@ img {
   text-align: center;
 }
 
-/* Контрастный текст */
-.text-contrast {
-  color: #ffffff;
-}
-
 /* Стили для index, Header */
 .navigation-link {
   font-size: 20px;
@@ -129,7 +124,12 @@ img {
 
 /* Стили для Advantages  */
 .card-saturated {
+  color: #ffffff;
   background-color: #82b3d3;
+}
+
+.card-saturated .advantages-card-title {
+  color: inherit;
 }
 
 .advantages-img {
@@ -149,12 +149,18 @@ img {
 .newsletter {
   padding: 96px 258px 104px;
 }
+
 .newsletter-background {
+  color: #ffffff;
   background-image: url("../images/subscribe-background.jpg");
-  background-color: #000000;
+  background-color: #425ad2;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.newsletter-background .newsletter-lead {
+  color: inherit;
 }
 
 /* Стили для Footer-wrapper  */
@@ -170,8 +176,9 @@ img {
 /* Стили для Catalog.html, catalog-header */
 .catalog-header {
   padding: 35px 70px 70px;
+  color: #ffffff;
   background-image: url("../images/filters-background.jpg");
-  background-color: #000000;
+  background-color: #756157;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
