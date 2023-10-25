@@ -412,9 +412,8 @@ img {
   margin: 0 auto 20px;
 }
 
-/* Добавляет отступ сверху для адекватного переполнения, тк снизу отступа нет */
 .recommendations-description {
-  margin: 20px auto 0;
+  margin: 0 auto;
 }
 
 .recommendations-list {
@@ -484,12 +483,31 @@ img {
 }
 
 .recommendations-card-description {
-  margin: 22px auto 0;
+  margin: 0 auto;
 }
 
 
 /* Cтили для Hotel-search */
+.hotel-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 406px;
+  padding: 96px 304px;
+}
 
+.hotel-search-lead {
+  margin: 0 auto 20px;
+}
+
+.hotel-search-description {
+  margin: 0 auto;
+}
+
+.button-hotel-search {
+  margin-top: 54px;
+}
 
 /* Стили для Page-footer, Newsletter */
 .newsletter {
