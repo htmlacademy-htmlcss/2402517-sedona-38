@@ -145,7 +145,7 @@ img {
 
 .navigation {
   display: flex;
-  align-items: center;
+  align-items: start;
   width: 892px;
 }
 
@@ -232,8 +232,8 @@ img {
   top: 10px;
   left: 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-width: 20px;
   height: 20px;
   padding: 4px;
@@ -245,9 +245,19 @@ img {
   border-radius: 50%;
 }
 
+.align-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 160px;
+  min-height: 64px;
+  padding: 4px 0;
+}
+
 .button-wanna-here {
   padding: 8px 34px;
-  min-width: 160px;
 }
 
 .current-navigation-item {
