@@ -123,6 +123,21 @@ img {
   text-align: center;
 }
 
+.card {
+  display: block;
+  width: 400px;
+  height: 385px;
+  padding: 102px 85px;
+}
+
+.card:nth-child(odd) {
+  background-color: rgba(131, 179, 211, 0.2);
+}
+
+.card:nth-child(even) {
+  background-color: rgba(131, 179, 211, 0.12);
+}
+
 /* Стили для index, Header */
 .page-header {
   display: flex;
@@ -288,17 +303,98 @@ img {
 }
 
 /* Стили для Advantages  */
+/* Оборачивает вступительный текст к секции в контейнер для выравнивания */
+.advantages-text-container {
+  padding: 69px 70px;
+}
+
+.advantages-lead {
+  margin: 0 auto 25px;
+}
+
+.advantages-description {
+  margin: 0 auto 21px;
+}
+
+/* Флекс-контейнер для сетки, сбрасывает отступы списка*/
+.advantages-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+/* Флекс-контейнер для выравнивания изображения и карты */
 .card-saturated {
+  display: flex;
+  width: 1200px;
   color: #ffffff;
   background-color: #82b3d3;
 }
 
+/* Наследует цвет текста, тк наследовался цвет заголовочных стилей */
 .card-saturated .advantages-card-title {
   color: inherit;
 }
 
+/* Меняет местами каждую вторую картинку и карту при структуре (saturated/card/card/card...).
+Прописать каждому второму .saturated через nth-child и nth-of-type не получилось */
+.advantages-item:nth-child(8n+5) {
+  flex-direction: row-reverse;
+}
+
 .advantages-img {
   display: block;
+}
+
+/* Сбрасывает отступы текста, задает position для выравнивания декоративного псевдоэлемента */
+.advantages-card-title {
+  position: relative;
+  margin: 0;
+}
+
+.advantages-card-description {
+  margin: 0;
+}
+
+/* Декоративный элемент выравнивается по центру нижнего края и смещается на 30рх вниз маргином */
+.advantages-card-title::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 2px;
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Меняет цвет полоски у saturated */
+.card-saturated .advantages-card-title::after {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Выравнивает содержимое saturated (чтобы выровнять по space-between)
+Центрирует блок с текстом внутри li у обычных карт, тк на макете есть отступы, характерные для центрирования и заданы конкретные границы для текста */
+.advantages-list .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Выравнивает saturated по space-between, тк контент этих карт больше, чем обычных и нет четких границ кроме падингов у card */
+.card-saturated .card {
+  justify-content: space-between;
+}
+
+/* Выравнивает текст внутри контейнера для обычных карт */
+.card-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 230px;
+  height: 160px;
 }
 
 /* Стили для Recommendations */
