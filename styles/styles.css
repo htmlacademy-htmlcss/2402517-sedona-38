@@ -30,6 +30,7 @@ body {
   margin: 0;
   font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
+  font-weight: 400;
   line-height: 21px;
   color: #333333;
   background-color: #f2f2f2;
@@ -93,6 +94,11 @@ img {
   background-color: #7db54f;
 }
 
+.button-width {
+  font-size: 20px;
+  line-height: 36px;
+}
+
 /* Заголовочные стили */
 .section-lead {
   font-size: 30px;
@@ -128,14 +134,6 @@ img {
   width: 400px;
   height: 385px;
   padding: 102px 85px;
-}
-
-.card:nth-child(odd) {
-  background-color: rgba(131, 179, 211, 0.2);
-}
-
-.card:nth-child(even) {
-  background-color: rgba(131, 179, 211, 0.12);
 }
 
 /* Стили для index, Header */
@@ -397,14 +395,101 @@ img {
   height: 160px;
 }
 
+.advantages-list .card:nth-child(odd) {
+  background-color: rgba(131, 179, 211, 0.2);
+}
+
+.advantages-list .card:nth-child(even) {
+  background-color: rgba(131, 179, 211, 0.12);
+}
+
 /* Стили для Recommendations */
+.recommendations-text-container {
+  padding: 64px 70px;
+}
+
+.recommendations-lead {
+  margin: 0 auto 20px;
+}
+
+/* Добавляет отступ сверху для адекватного переполнения, тк снизу отступа нет */
+.recommendations-description {
+  margin: 20px auto 0;
+}
+
+.recommendations-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin: 0;
+  padding: 0;
+}
+
+.recommendations-item {
+  padding: 80px 85px;
+  position: relative;
+}
+
+.recommendations-item:nth-child(odd) {
+  background-color: rgba(131, 179, 211, 0.12);
+}
+
+.recommendations-item:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 75px;
+  height: 75px;
+  margin-top: 80px;
+  background-image: url("../images/icons/house.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.recommendations-item:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 75px;
+  height: 75px;
+  margin-top: 80px;
+  background-image: url("../images/icons/burger.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.recommendations-item:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 75px;
+  height: 75px;
+  margin-top: 80px;
+  background-image: url("../images/icons/present.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.recommendations-card-title {
+  margin: 102px auto 30px;
+}
+
+.recommendations-card-description {
+  margin: 22px auto 0;
+}
+
 
 /* Cтили для Hotel-search */
-.button-hotel-search,
-.button-newsletter {
-  font-size: 20px;
-  line-height: 36px;
-}
+
 
 /* Стили для Page-footer, Newsletter */
 .newsletter {
