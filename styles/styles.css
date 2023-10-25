@@ -320,6 +320,7 @@ img {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 /* Флекс-контейнер для выравнивания изображения и карты */
@@ -422,6 +423,7 @@ img {
   width: 1200px;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .recommendations-item {
@@ -560,15 +562,76 @@ img {
   align-items: center;
   justify-content: space-between;
   width: 1200px;
+  min-height: 120px;
   padding: 40px 70px 30px;
 }
 
 .social-list {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  max-width: 300px;
+  max-width: 150px;
   margin: 0;
-  padding: o;
+  padding: 0;
+  list-style: none;
+}
+
+.social-item {
+  position: relative;
+  width: 47px;
+  height: 40px;
+  padding: 0 10px;
+}
+
+.vk::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  height: 15px;
+  background-image: url("../images/icons/vkontakte.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.tg::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 19px;
+  height: 17px;
+  background-image: url("../images/icons/telegram.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.yt::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 23px;
+  height: 18px;
+  background-image: url("../images/icons/youtube.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 335px;
 }
 
 .phone-link {
@@ -578,6 +641,14 @@ img {
   text-decoration: none;
   text-transform: uppercase;
   color: #000000;
+}
+
+.partners {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 115px;
 }
 
 /* Стили для Catalog.html, catalog-header */
