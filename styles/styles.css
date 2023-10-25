@@ -272,12 +272,19 @@ img {
 /* Стили для Hero  */
 .hero {
   min-height: 485px;
+  padding: 51px 70px 25px;
+  text-align: center;
   color: #ffffff;
   background-image: url("../images/hero-flag.svg"), url("../images/hero-background.jpg");
   background-color: #003905;
   background-size: contain, cover;
   background-repeat: no-repeat;
   background-position: bottom, center;
+}
+
+.hero-img {
+  display: block;
+  margin: 0 auto;
 }
 
 /* Стили для Advantages  */
