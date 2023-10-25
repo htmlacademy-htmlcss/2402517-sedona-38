@@ -512,6 +512,7 @@ img {
 /* Стили для Page-footer, Newsletter */
 .newsletter {
   padding: 96px 258px 104px;
+  min-height: 415px;
 }
 
 .newsletter-background {
@@ -524,10 +525,52 @@ img {
 }
 
 .newsletter-background .newsletter-lead {
+  margin: 0 auto 20px;
   color: inherit;
 }
 
+.newsletter-description {
+  margin: 0 auto;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 54px;
+}
+
+.field {
+  width: 452px;
+  height: 52px;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 24px;
+  background-color: #f2f2f2;
+}
+
+.button-newsletter {
+  border-radius: 0 4px 4px 0;
+}
+
 /* Стили для Footer-wrapper  */
+.footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1200px;
+  padding: 40px 70px 30px;
+}
+
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 300px;
+  margin: 0;
+  padding: o;
+}
+
 .phone-link {
   font-size: 40px;
   line-height: 40px;
