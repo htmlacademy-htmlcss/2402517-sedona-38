@@ -14,7 +14,12 @@
   font-display: swap;
 }
 
-/* Общие стили */
+/* ----- ----- самые крупные блоки ----- ----- */
+/* ----- группа стилей к крупному блоку ----- */
+/* описание правила */
+/* пояснение решения */
+
+/* ----- ----- общие стили ----- ----- */
 *,
 *::before,
 *::after {
@@ -44,25 +49,31 @@ img {
 
 .visually-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
   white-space: nowrap;
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }
 
 .page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
   width: 1200px;
+  min-height: 100%;
   margin: 0 auto;
   background-color: #ffffff;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.page-header,
+.index-main,
+.page-footer {
+  text-align: center;
 }
 
 .index-main,
@@ -70,7 +81,7 @@ img {
   flex-grow: 1;
 }
 
-/* Кнопки */
+/* ----- стили для кнопок ----- */
 .button {
   padding: 8px 50px;
   font-family: inherit;
@@ -82,8 +93,8 @@ img {
   text-transform: uppercase;
   color: #ffffff;
   background-color: #756157;
-  border-radius: 4px;
   border: 0;
+  border-radius: 4px;
 }
 
 .button-brand {
@@ -94,41 +105,28 @@ img {
   background-color: #7db54f;
 }
 
-.button-width {
+.button-weight {
   font-size: 20px;
   line-height: 36px;
 }
 
-/* Заголовочные стили */
+/* ----- стили для заголовков секций ----- */
 .section-lead {
+  margin-top: 0;
   font-size: 30px;
   font-weight: 700;
   line-height: 36px;
-  text-align: center;
   text-transform: uppercase;
   color: #000000;
 }
 
 .section-description {
+  margin: 0;
   font-size: 22px;
   line-height: 26px;
-  text-align: center;
 }
 
-/* Карты index */
-.card-title {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 28px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #000000;
-}
-
-.card-description {
-  text-align: center;
-}
-
+/* ----- стили для карт в index ----- */
 .card {
   display: block;
   width: 400px;
@@ -136,114 +134,158 @@ img {
   padding: 102px 85px;
 }
 
-/* Стили для index, Header */
+.card-title {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.card-description {
+  margin: 0;
+}
+
+/* ----- ----- index.html ----- ----- */
+/* ----- стили для page-header ----- */
+/* задает пространство шапке, выравнивает лого и навигацию, переносит при переполнении */
 .page-header {
   display: flex;
-  align-items: start;
-  width: 1200px;
+  flex-wrap: wrap;
   padding: 0 70px;
 }
 
+/* задает приоритет и отступы ссылке логотипа */
+/* display block и width не нужны, т.к. это флекс-элемент */
 .logo-link {
   z-index: 1;
-  display: block;
-  width: 140px;
-  margin-right: 28px;
-  margin-bottom: -6px;
+  margin: 0 28px -6px 0;
 }
 
+/* задает display картинке логотипа */
 .logo {
   display: block;
 }
 
+/* выравнивает блок навигации */
+/* width не дает сжиматься до размера контента */
+/* align-items оставляет элементы на текущей позиции при переполнении */
 .navigation {
   display: flex;
+  flex-wrap: wrap;
   align-items: start;
   width: 892px;
 }
 
+/* сбрасывает браузерные стили, выравнивает списки навигации */
 .navigation-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.navigation-main {
-  display: flex;
-  flex-wrap: wrap;
-  min-width: 350px;
-  margin-right: auto;
+/* ограничивает максимальную ширину левому списку навигации */
+.navigation-left {
+  max-width: 450px;
 }
 
-.navigation-main .navigation-link {
+/* выравнивает правую часть навигации, прижимает её к правому краю */
+/* justify-content оставляет блок прижатым справа в случае расширения контейнера */
+/* align - костыль для единообразного выравнивания при переполнении */
+/* min-width не разрешает сжиматься */
+.navigation-right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  align-items: start;
+  gap: 20px;
+  min-width: 270px;
+  max-width: 370px;
+  margin-left: auto;
+}
+
+/* задает пространство ссылкам в левой части */
+.navigation-left .navigation-link {
   display: block;
   padding: 20px 16px;
 }
 
-.navigation-user {
-  display: flex;
-  justify-content: end;
-  flex-wrap: wrap;
-  min-width: 100px;
-  margin-right: 20px;
+/* задает размеры элементам правого списка навигации */
+.navigation-right .navigation-item {
+  min-width: 44px;
+  min-height: 64px;
+  padding: 15px 5px;
 }
 
-.navigation-user .navigation-link {
+/* задает размеры и позиционирует ссылки в правой части */
+/* min тк контент может смениться на текст */
+.navigation-right .navigation-link {
+  position: relative;
   display: block;
-  width: 44px;
-  height: 64px;
-  padding: 22px 12px;
+  min-width: 34px;
+  min-height: 34px;
 }
 
+/* стилизует ссылки навигации */
 .navigation-link {
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
-  text-align: center;
   text-decoration: none;
   color: #000000;
 }
 
-.search {
+/* стилизует текущую ссылку */
+/* не позиционированный элемент игнорирует z-index */
+.current-navigation-link {
   position: relative;
-  width: 44px;
+  z-index: 1;
+  text-decoration: underline;
+  text-decoration-color: #756257;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 19.4px;
+  text-underline-position: under;
 }
 
-.search::before {
+/* создает и позиционирует псевдоэлемент с иконкой поиска */
+.search-icon::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   background-image: url("../images/interface/search.svg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
 }
 
-.favorites {
-  position: relative;
-  width: 44px;
-}
-
-.favorites::before {
+/* создает и позиционирует псевдоэлемент с иконкой избранного */
+.favorites-icon::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 17px;
   background-image: url("../images/interface/favorites.svg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
 }
 
+/* оформляет и позиционирует количество избранных элементов */
 .amount-favorites {
   position: absolute;
-  top: 10px;
-  left: 20px;
+  top: -3.5px;
+  left: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,35 +300,19 @@ img {
   border-radius: 50%;
 }
 
-.align-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  flex-wrap: wrap;
-  gap: 10px;
-  min-width: 160px;
-  min-height: 64px;
-  padding: 4px 0;
-}
-
+/* назначает пространство кнопке хочу сюда */
+/* height & margin ставят на костыли для выравнивания при переполнении, чтобы кнопка не центровалась */
 .button-wanna-here {
+  height: 36px;
+  margin-top: 14px;
   padding: 8px 34px;
 }
 
-.current-navigation-item {
-  z-index: 1;
-  text-decoration: underline;
-  text-decoration-color: #756257;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 19.4px;
-  text-underline-position: under;
-}
-
-/* Стили для Hero  */
+/* ----- cтили для hero ----- */
+/* оформляет блок герой */
 .hero {
   min-height: 485px;
   padding: 51px 70px 25px;
-  text-align: center;
   color: #ffffff;
   background-image: url("../images/hero-flag.svg"), url("../images/hero-background.jpg");
   background-color: #003905;
@@ -295,26 +321,30 @@ img {
   background-position: bottom, center;
 }
 
+/* выравнивает приветственное изображение */
 .hero-img {
   display: block;
   margin: 0 auto;
 }
 
-/* Стили для Advantages  */
-/* Оборачивает вступительный текст к секции в контейнер для выравнивания */
+/* ----- cтили для advantages -----  */
+/* задает пространство секции преимуществ */
+/* padding блоку (вместо margin параграфу) для того, чтобы при добавлении текста, отступ между текстом и карточкой всегда не менялся */
 .advantages-text-container {
   padding: 69px 70px;
 }
 
-.advantages-lead {
-  margin: 0 auto 25px;
+/* добавляет отступ заголовку преимуществ */
+.advantages .section-lead {
+  margin-bottom: 25px;
 }
 
-.advantages-description {
-  margin: 0 auto 21px;
+/* добавляет отступ описанию преимуществ */
+.advantages .section-description {
+  margin-bottom: 21px;
 }
 
-/* Флекс-контейнер для сетки, сбрасывает отступы списка*/
+/* выравнивает список преимуществ, сбрасывает стили списка */
 .advantages-list {
   display: flex;
   flex-wrap: wrap;
@@ -323,71 +353,69 @@ img {
   list-style: none;
 }
 
-/* Флекс-контейнер для выравнивания изображения и карты */
+/* выравнивает карточку преимуществ с изображением, задает цвет текста и фона для карты */
 .card-saturated {
   display: flex;
-  width: 1200px;
   color: #ffffff;
   background-color: #82b3d3;
 }
 
-/* Наследует цвет текста, тк наследовался цвет заголовочных стилей */
-.card-saturated .advantages-card-title {
+/* наследует цвет текста для заголовка большой карточки */
+/* черный цвет текста наследуется от класса section-lead */
+.card-saturated .card-title {
   color: inherit;
 }
 
-/* Меняет местами каждую вторую картинку и карту при структуре (saturated/card/card/card...).
-Прописать каждому второму .saturated через nth-child и nth-of-type не получилось */
+/* разворачивает контент каждой второй большой карточки при структуре (saturated/card/card/card...) */
+/* прописать каждому второму li.saturated через nth-child и nth-of-type не получилось */
 .advantages-item:nth-child(8n+5) {
   flex-direction: row-reverse;
 }
 
+/* выравнивает изображение карточки преимуществ */
 .advantages-img {
   display: block;
 }
 
-/* Сбрасывает отступы текста, задает position для выравнивания декоративного псевдоэлемента */
-.advantages-card-title {
+/* позиционирует заголовок карты, сбрасывает отступ */
+.advantages-item .card-title {
   position: relative;
-  margin: 0;
+  margin-bottom: 0;
 }
 
-.advantages-card-description {
-  margin: 0;
-}
-
-/* Декоративный элемент выравнивается по центру нижнего края и смещается на 30рх вниз маргином */
-.advantages-card-title::after {
+/* создает и выравнивает декоративное подчеркивание заголовку */
+.advantages-item .card-title::after {
   content: "";
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   width: 60px;
   height: 2px;
   margin-top: 30px;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Меняет цвет полоски у saturated */
-.card-saturated .advantages-card-title::after {
+/* меняет цвет подчеркивания у заголовков saturated */
+.card-saturated .card-title::after {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Выравнивает содержимое saturated (чтобы выровнять по space-between)
-Центрирует блок с текстом внутри li у обычных карт, тк на макете есть отступы, характерные для центрирования и заданы конкретные границы для текста */
+/* выравнивает контейнеры с текстом внутри карт по центру, выравнивает контент внутри карточки saturated */
 .advantages-list .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* Выравнивает saturated по space-between, тк контент этих карт больше, чем обычных и нет четких границ кроме падингов у card */
+/* переназначает выравнивание для текста saturated */
+/* card для saturated уже является контейнером для текста, который по макету занимает всё доступное пространство внутри карты */
 .card-saturated .card {
   justify-content: space-between;
 }
 
-/* Выравнивает текст внутри контейнера для обычных карт */
+/* задает размеры контейнеру, выравнивает текст внутри контейнера для обычных карт */
+/* по макету область для текста в обычных карточках ограничена, выравнивание текста происходит уже внутри контейнера, а сам контейнер выравнен по центру */
 .card-text-container {
   display: flex;
   flex-direction: column;
@@ -396,51 +424,57 @@ img {
   height: 160px;
 }
 
+/* добавляет фон нечетным карточкам преимуществ */
 .advantages-list .card:nth-child(odd) {
   background-color: rgba(131, 179, 211, 0.2);
 }
 
+
+/* добавляет фон четным карточкам преимуществ */
 .advantages-list .card:nth-child(even) {
   background-color: rgba(131, 179, 211, 0.12);
 }
 
-/* Стили для Recommendations */
+/* ----- cтили для recommendations ----- */
+/* задает пространство в блоке рекомендаций */
 .recommendations-text-container {
   padding: 64px 70px;
 }
 
-.recommendations-lead {
-  margin: 0 auto 20px;
+/* задает отступ заголовку секции рекомендаций */
+.recommendations .section-lead {
+  margin-bottom: 20px;
 }
 
-.recommendations-description {
-  margin: 0 auto;
-}
-
+/* выравнивает список рекомендаций и обнуляет браузерные стили */
 .recommendations-list {
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* позиционирует карточку рекомендаций и задает ей пространство */
 .recommendations-item {
-  padding: 80px 85px;
   position: relative;
+  padding: 80px 85px;
 }
 
-.recommendations-item:nth-child(odd) {
-  background-color: rgba(131, 179, 211, 0.12);
+/* задает отступы заголовку карты преимуществ */
+.recommendations-item .card-title {
+  margin: 102px auto 30px;
 }
 
-.recommendations-item:nth-child(1)::before {
+
+/* добавляет и выравнивает иконку домика в карту преимуществ */
+/* обращение по nth-child не подойдёт, тк контент может измениться и иконка уже будет не в тему */
+.card-housing::before {
   content: "";
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%);
   width: 75px;
   height: 75px;
   margin-top: 80px;
@@ -450,12 +484,13 @@ img {
   background-size: contain;
 }
 
-.recommendations-item:nth-child(2)::before {
+/* добавляет и выравнивает иконку бургера в карту преимуществ */
+.card-food::before {
   content: "";
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%);
   width: 75px;
   height: 75px;
   margin-top: 80px;
@@ -465,12 +500,13 @@ img {
   background-size: contain;
 }
 
-.recommendations-item:nth-child(3)::before {
+/* добавляет и выравнивает иконку подарка в карту преимуществ */
+.card-souvenirs::before {
   content: "";
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%);
   width: 75px;
   height: 75px;
   margin-top: 80px;
@@ -480,110 +516,129 @@ img {
   background-size: contain;
 }
 
-.recommendations-card-title {
-  margin: 102px auto 30px;
+/* задает цвет фона каждой нечетной карточке преимуществ */
+.recommendations-item:nth-child(odd) {
+  background-color: rgba(131, 179, 211, 0.12);
 }
 
-.recommendations-card-description {
-  margin: 0 auto;
-}
-
-
-/* Cтили для Hotel-search */
+/* ----- cтили для hotel-search ----- */
+/* задает размеры всему блоку, выравнивает контент внутри блока */
 .hotel-search {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  min-height: 406px;
   padding: 96px 304px;
 }
 
-.hotel-search-lead {
-  margin: 0 auto 20px;
+/* задает отступ заголовку поиска гостиницы */
+.hotel-search .section-lead {
+  margin-bottom: 20px;
 }
 
-.hotel-search-description {
-  margin: 0 auto;
+/* задает отступ описанию блока поиска */
+.hotel-search .section-description{
+  margin-bottom: 54px;
 }
 
-.button-hotel-search {
-  margin-top: 54px;
-}
-
-/* Стили для Page-footer, Newsletter */
+/* ----- стили для секции рассылки ----- */
+/* задает пространство секции рассылки */
 .newsletter {
   padding: 96px 258px 104px;
-  min-height: 415px;
 }
 
+/* задает фон секции рассылки */
 .newsletter-background {
   color: #ffffff;
-  background-image: url("../images/subscribe-background.jpg");
   background-color: #425ad2;
-  background-size: cover;
+  background-image: url("../images/subscribe-background.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 
-.newsletter-background .newsletter-lead {
-  margin: 0 auto 20px;
+/* наследует цвет текста для заголовка рассылки только для блока с фоном */
+.newsletter-background .section-lead {
   color: inherit;
 }
 
-.newsletter-description {
-  margin: 0 auto;
+/* задает отступ заголовку рассылки */
+.newsletter .section-lead {
+  margin-bottom: 20px;
 }
 
+/* задает отступ описанию секции рассылки */
+.newsletter .section-description {
+  margin-bottom: 54px;
+}
+
+/* соединяет поле ввода емайл и кнопку */
 .newsletter-form {
   display: flex;
-  margin-top: 54px;
 }
 
+/* описывает стили для поля ввода емайл */
 .field {
   width: 452px;
   height: 52px;
-  border: 0;
-  border-radius: 4px 0 0 4px;
   padding: 12px 20px;
   font-family: inherit;
   font-size: inherit;
   line-height: 24px;
   background-color: #f2f2f2;
+  border: 0;
+  border-radius: 4px 0 0 4px;
 }
 
+/* обнуляет левые скругления у кнопки, соединенной с полем */
 .button-newsletter {
   border-radius: 0 4px 4px 0;
 }
 
-/* Стили для Footer-wrapper  */
+/* ----- стили для footer-wrapper ----- */
+/* выравнивает наполнение нижней части подвала */
+/* gap не дает слипаться элементам при переполнении */
 .footer-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 1200px;
-  min-height: 120px;
+  flex-wrap: wrap;
+  gap: 20px;
   padding: 40px 70px 30px;
 }
 
+/* прижимает блок социальных сетей к левому краю */
+/* width фиксирует блок при переполнении, с min-width сетка ломается */
+/* margin учитывает случаи изменения или удаления других блоков, поровну делит пространство, вертикальные отступы для единообразия выравнивания  */
+.social {
+  width: 150px;
+  margin: auto auto auto 0;
+}
+
+/* выравнивает список социальных сетей */
+/* align-items выравнивает содержимое в случае, если контент будет меньше по высоте */
 .social-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  max-width: 150px;
+  align-items: center;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* задает размеры li списка соцсетей */
 .social-item {
-  position: relative;
-  width: 47px;
-  height: 40px;
-  padding: 0 10px;
+  min-width: 47px;
+  min-height: 50px;
+  padding: 5px 3.5px;
 }
 
+/* задает размеры ссылкам социальных сетей */
+.social-link {
+  position: relative;
+  display: block;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+/* создает и выравнивает псевдоэлемент с иконкой вк */
 .vk::before {
   content: "";
   position: absolute;
@@ -598,6 +653,7 @@ img {
   background-size: contain;
 }
 
+/* создает и выравнивает псевдоэлемент с иконкой тг */
 .tg::before {
   content: "";
   position: absolute;
@@ -605,13 +661,14 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 19px;
-  height: 17px;
+  height: 16px;
   background-image: url("../images/icons/telegram.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
 
+/* создает и выравнивает псевдоэлемент с иконкой ютуб */
 .yt::before {
   content: "";
   position: absolute;
@@ -626,32 +683,45 @@ img {
   background-size: contain;
 }
 
+/* выравнивает блок с контактами */
 .contacts {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  max-width: 335px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 720px;
+  margin: 0 auto;
 }
 
+/* назначает стили ссылке номера телефона */
 .phone-link {
   font-size: 40px;
   line-height: 40px;
-  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   color: #000000;
 }
 
+/* выравнивает блок с партнерами */
 .partners {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  max-width: 115px;
+  justify-content: end;
+  align-items: center;
+  gap: 20px;
+  width: 120px;
+  margin-left: auto;
 }
 
-/* Стили для Catalog.html, catalog-header */
+/* задает display логотипу партнеров */
+.academy-logo {
+  display: block;
+}
+
+/* ----- ----- catalog.html ----- -----  */
+/* ----- стили для catalog-header ----- */
+/* задает пространство и цвет текста всему блоку, добавляет фон */
 .catalog-header {
   padding: 35px 70px 70px;
   color: #ffffff;
@@ -662,6 +732,7 @@ img {
   background-size: cover;
 }
 
+/* описывает стили для заголовка страницы */
 .catalog-title {
   margin-top: 0;
   margin-bottom: 8px;
@@ -670,78 +741,232 @@ img {
   line-height: 78px;
 }
 
+/* выравнивает список хлебных крошек */
+/* максимальная ширина чуть больше ширины заголовка, потом перенос */
 .breadcrumbs {
   display: flex;
-  align-items: center;
-  max-width: 700px;
-  gap: 28px;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 600px;
   margin: 0;
   margin-bottom: 40px;
   padding: 0;
   list-style: none;
 }
 
+/* описывает стили ссылкок в хлебных крошках */
 .breadcrumbs-link {
   font-size: 16px;
-  /* если убрать нижнише две строчки, стилизация не меняется. они нужны? */
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-.breadcrumbs-item-main {
+/* позиционирует li хлебных крошек */
+.breadcrumbs-item {
   position: relative;
+}
+
+/* задает минимальную ширину первому li крошек */
+/* ширина исключает нулевую ширину li для корректного выравнивания, а значение min позволяет менять контент без его выпадания */
+/* обращение к первому элементу исключает возможность переместить иконку внутри списка на другое место, но ol исключает изменение порядка li => псевдокласс позволяет обойтись без лишнего класса типа breadcrumbs-item-home */
+.breadcrumbs-item:first-child {
   min-width: 13px;
 }
 
-.breadcrumbs-item-main .breadcrumbs-link::before {
+/* задает внутренний отступ всем li крошек кроме первого */
+/* это позволяет избежать выпадения декоративной стрелки за padding секции-предка при переносе из-за переполнения */
+.breadcrumbs-item:not(:first-child) {
+  padding-left: 18px;
+}
+
+/* добавляет и выравнивает иконку (относительного первого li) для ссылки на главную в крошках */
+.breadcrumbs-item:first-child .breadcrumbs-link::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 13px;
-  height: 15px;
-  padding: 0.5px 0.5px 2.5px;
+  height: 13px;
+  margin-top: -1px;
   background-image: url("../images/interface/home-link.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
 
-.breadcrumbs-item:not(:first-child) {
-  position: relative;
-}
-
+/* добавляет и выравнивает стрелку между ссылками в крошках перед каждым li, кроме первого */
 .breadcrumbs-item:not(:first-child)::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translate(0, -50%);
+  transform: translateY(-50%);
   width: 8px;
   height: 20px;
-  margin-left: -17px;
-  padding: 5px 0.8px;
   background-image: url("../images/interface/arrowright.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
 
-/* Стили для Catalog-filter */
+/* ----- стили для catalog-filter ----- */
+/* выравнивает блок с фильтрами */
+.catalog-filter {
+  display: flex;
+}
+
+/* выравнивает левую сторону фильтров */
+/* min-width (с запасом на различное отображение шрифтов) исключает перенос элементов при переполнении соседнего блока */
+/* margin-right выдерживает расстояние равное gap между блоками, в случае их расширения при изменении контента, тем самым, в связке с margin-left:auto у соседнего блока, гибко описывает их максимальную ширину */
+.catalog-filter-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+  min-width: 370px;
+  margin-right: 70px;
+}
+
+/* выравнивает список чекбоксов и радиокнопок */
+/* flex ради gap'а, через margin у li больше кода и замутнее из-за обнуления last-child */
+.catalog-filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* выравнивает правую сторону фильтров */
+/* min-width (с запасом на разное отображение шрифтов) исключает перенос элементов при переполнении соседнего блока */
+.catalog-filter-right {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 70px;
+  min-width: 560px;
+  margin-left: auto;
+}
+
+/* сбрасывает настройки браузера для fieldset */
+.catalog-filter-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* описывает стили для легенд */
 .catalog-filter-title {
+  margin-bottom: 32px;
+  padding: 0;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
   text-transform: capitalize;
 }
 
+/* выравнивает чекбоксы и лейблы */
+.catalog-filter-item {
+  display: flex;
+  gap: 16px;
+}
+
+/* описывает стили для лейбла чекбокса */
 .control {
   font-size: 18px;
   line-height: 23px;
 }
 
+/* описывает, позиционирует чекбокс */
+.control-input {
+  position: relative;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+/* описывает состояние выбранного чекбокса */
+.checkbox .control-input:checked::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 19px;
+  background-image: url("../images/interface/checkmark.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* превращает чекбокс в радиокнопку */
+.radio .control-input {
+  border-radius: 50%;
+}
+
+/* описывает состояние выбранной радиокнопки */
+.radio .control-input:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #3f5e72;
+  border-radius: 50%;
+}
+
+/* содиняет поля для ввода цены */
+.price-area {
+  display: flex;
+  gap: 2px;
+  width: 288px;
+  margin-bottom: 36px;
+}
+
+/* описывает стили поля для ввода цены */
+.price-input {
+  width: 143px;
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  background-color: #f2f2f2;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+/* меняет скругление краев на втором поле */
+.price-input-reverse {
+  border-radius: 0 4px 4px 0;
+}
+
+/* убирает браузерные стрелки управления числом в инпуте */
+.price-input::-webkit-outer-spin-button,
+.price-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* позиционирует обертку полей для ввода цены */
+/* обертка - родитель для позиционирования лейбла */
+.label-wrapper {
+  position: relative;
+}
+
+/* описывает стили и расположение лейбла "от"/"до" */
 .like-placeholder {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  margin-right: 20px;
   font-size: 18px;
   line-height: 24px;
   text-align: right;
@@ -750,22 +975,27 @@ img {
   opacity: 0.3;
 }
 
-.price-input {
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 24px;
+/* описывает стили для полосы регулировки цены */
+.price-toggle {
+  width: 100%;
+  margin: 0;
 }
 
+/* выравнивает кнопки, флекс ради центровки и gap'a */
+.catalog-filter-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding-top: 56px;
+}
+
+/* задает прозрачный фон для кнопки сброса */
 .catalog-filter-reset {
   background-color: transparent;
 }
 
-/* Стили для Hotels-section */
-.hotel-section-title {
-  text-align: start;
-}
-
+/* ----- cтили для hotels-section ----- */
 .control-select {
   padding: 14px 20px;
   font-family: inherit;
