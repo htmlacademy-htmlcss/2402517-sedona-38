@@ -1156,6 +1156,11 @@ img {
   display: block;
 }
 
+/* обнуляет браузерные отступы параграфов в картах */
+.hotel-card p {
+  margin: 0;
+}
+
 /* стилизует и выравнивает заголовок карточки отеля */
 .hotel-link .card-title {
   margin-bottom: 0;
@@ -1167,7 +1172,6 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0;
 }
 
 /* описывает гридом контейнер с кнопками, и качетсвом отелей */
@@ -1187,13 +1191,50 @@ img {
   padding: 0;
 }
 
-/* сбрасывает браузерные отступы у контейнеров р */
-.hotel-quality p {
-  margin: 0;
+/* описывает флекс-контейнер, в котором звёздочки, выравнивает псевдоэлементы */
+.hotel-stars {
+  display: flex;
+  align-items: center;
 }
 
+/* описывает псевдоэлемент с иконкой звездочки */
+/* в папке лежит спрайт звезд на всякий случай - не забыть удалить или использовать */
+/* bug: при масштабировании контента в браузере, звезды прячутся или добавляются */
+.hotel-stars::before {
+  content: "";
+  display: block;
+  height: 17px;
+  background-image: url("../images/icons/star.svg");
+  background-repeat: space no-repeat;
+  background-size: contain;
+}
 
+/* задает ширину псевдоэлементу для отображения одной звезды */
+.hotel-stars-1::before {
+  width: 24px;
+}
 
+/* задает ширину псевдоэлементу для отображения двух звезд */
+.hotel-stars-2::before {
+  width: 48px;
+}
+
+/* задает ширину псевдоэлементу для отображения трех звезд */
+.hotel-stars-3::before {
+  width: 72px;
+}
+
+/* задает ширину псевдоэлементу для отображения четырех звезд */
+.hotel-stars-4::before {
+  width: 96px;
+}
+
+/* задает ширину псевдоэлементу для отображения пяти звезд */
+.hotel-stars-5::before {
+  width: 120px;
+}
+
+/* описывает стили для параграфа с рейтингом места размещения */
 .hotel-rating {
   font-size: 16px;
   font-weight: 400;
@@ -1201,6 +1242,8 @@ img {
   color: #333333;
   background-color: #f2f2f2;
 }
+
+
 
 .current-pagination-link {
   color: #000000;
