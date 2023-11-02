@@ -130,7 +130,9 @@ img {
 
 /* ----- стили для карт ----- */
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 400px;
   min-height: 385px;
   padding: 102px 85px;
@@ -332,13 +334,6 @@ img {
   list-style: none;
 }
 
-/* выравнивает контент внутри карточек */
-.card-advantures {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 /* выравнивает карточку преимуществ с изображением, задает цвет текста и фона для карты */
 .card-saturated {
   display: flex;
@@ -400,7 +395,7 @@ img {
 }
 
 /* задает отступ заголовку секции рекомендаций */
-.recommendations .section-lead {
+.recommendations-lead {
   margin-bottom: 20px;
 }
 
@@ -413,65 +408,44 @@ img {
   list-style: none;
 }
 
-/* позиционирует карточку рекомендаций и задает ей пространство */
+/* задает пространство карточке рекомендаций */
 .recommendations-item {
-  position: relative;
   padding: 80px 85px;
 }
 
 /* задает отступы заголовку карты преимуществ */
-.recommendations-item .card-title {
-  margin: 102px auto 30px;
+.card-title-recommendations {
+  margin-bottom: 30px;
 }
 
-
-/* добавляет и выравнивает иконку домика в карту преимуществ */
-/* обращение по nth-child не подойдёт, тк контент может измениться и иконка уже будет не в тему */
-.card-housing::before {
+/* создает псевдоэлемент для карточки рекомендаций */
+.recommendations-item::before {
   content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
   width: 75px;
-  height: 75px;
-  margin-top: 80px;
-  background-image: url("../images/icons/house.svg");
+  height: 72px;
+  margin: 0 auto 30px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+/* добавляет и выравнивает иконку домика в карту преимуществ */
+/* обращение по nth-child не подойдёт, тк контент может измениться и иконка уже будет не в тему */
+.card-residence::before {
+  background-image: url("../images/icons/house.svg");
 }
 
 /* добавляет и выравнивает иконку бургера в карту преимуществ */
 .card-food::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 75px;
-  height: 75px;
-  margin-top: 80px;
   background-image: url("../images/icons/burger.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 /* добавляет и выравнивает иконку подарка в карту преимуществ */
 .card-souvenirs::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 75px;
-  height: 75px;
-  margin-top: 80px;
+  height: 76px;
+  margin-top: -1px;
   background-image: url("../images/icons/present.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 /* задает цвет фона каждой нечетной карточке преимуществ */
@@ -1093,8 +1067,6 @@ img {
 .hotel-card {
   display: grid;
   gap: 16px;
-  min-width: 340px;
-  min-height: 438px;
   padding: 20px;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
