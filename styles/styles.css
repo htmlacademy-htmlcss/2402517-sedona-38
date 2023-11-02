@@ -175,9 +175,11 @@ img {
 
 /* выравнивает блок навигации */
 /* width не дает сжиматься до размера контента */
+/* align-items не позволяется растягиваться спискам в случае, если появляется новая строка */
 .navigation {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   width: 892px;
 }
 
@@ -259,6 +261,7 @@ img {
 /* оформляет и позиционирует количество избранных элементов */
 .amount-favorites {
   position: absolute;
+  white-space: nowrap;
   top: 11px;
   left: 19px;
   min-width: 20px;
@@ -334,21 +337,31 @@ img {
   list-style: none;
 }
 
+/* добавляет фон нечетным карточкам преимуществ */
+.advantages-item:nth-child(odd) {
+  background-color: rgba(131, 179, 211, 0.2);
+}
+
+/* добавляет фон четным карточкам преимуществ */
+.advantages-item:nth-child(even) {
+  background-color: rgba(131, 179, 211, 0.12);
+}
+
 /* выравнивает карточку преимуществ с изображением, задает цвет текста и фона для карты */
-.card-saturated {
+.advantages-list .card-saturated {
   display: flex;
   color: #ffffff;
   background-color: #82b3d3;
 }
 
 /* позиционирует заголовок карты, сбрасывает отступ */
-.card-title-advantures {
+.card-title-advantages {
   margin-bottom: 0;
 }
 
 /* наследует цвет текста для заголовка большой карточки */
 /* черный цвет текста наследуется от класса section-lead */
-.card-saturated .card-title-advantures {
+.card-saturated .card-title-advantages {
   color: inherit;
 }
 
@@ -363,29 +376,23 @@ img {
   flex-direction: row-reverse;
 }
 
+.title-underline {
+  margin-bottom: 30px;
+}
+
 /* создает и выравнивает декоративное подчеркивание заголовку */
 .title-underline::after {
   content: "";
   display: block;
   width: 60px;
   height: 2px;
-  margin: 30px auto;
+  margin: 30px auto 0;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* меняет цвет подчеркивания у заголовков saturated */
 .card-saturated .title-underline::after {
   background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* добавляет фон нечетным карточкам преимуществ */
-.advantages-list .card:nth-child(odd) {
-  background-color: rgba(131, 179, 211, 0.2);
-}
-
-/* добавляет фон четным карточкам преимуществ */
-.advantages-list .card:nth-child(even) {
-  background-color: rgba(131, 179, 211, 0.12);
 }
 
 /* ----- cтили для recommendations ----- */
@@ -443,8 +450,8 @@ img {
 
 /* добавляет и выравнивает иконку подарка в карту преимуществ */
 .card-souvenirs::before {
-  height: 76px;
-  margin-top: -1px;
+  /* height: 76px;
+  margin-top: -1px; */
   background-image: url("../images/icons/present.svg");
 }
 
