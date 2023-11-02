@@ -31,7 +31,7 @@ html {
 }
 
 body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
@@ -173,11 +173,9 @@ img {
 
 /* выравнивает блок навигации */
 /* width не дает сжиматься до размера контента */
-/* align-items оставляет элементы на текущей позиции при переполнении */
 .navigation {
   display: flex;
   flex-wrap: wrap;
-  align-items: start;
   width: 892px;
 }
 
@@ -185,54 +183,17 @@ img {
 .navigation-list {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   margin: 0;
   padding: 0;
+  width: 500px;
   list-style: none;
-}
-
-/* ограничивает максимальную ширину левому списку навигации */
-.navigation-left {
-  max-width: 450px;
-}
-
-/* выравнивает правую часть навигации, прижимает её к правому краю */
-/* justify-content оставляет блок прижатым справа в случае расширения контейнера */
-/* align - костыль для единообразного выравнивания при переполнении */
-/* min-width не разрешает сжиматься */
-.navigation-right {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: end;
-  align-items: start;
-  gap: 20px;
-  min-width: 270px;
-  max-width: 370px;
-  margin-left: auto;
-}
-
-/* задает пространство ссылкам в левой части */
-.navigation-left .navigation-link {
-  display: block;
-  padding: 20px 16px;
-}
-
-/* задает пространство элементам правого списка навигации */
-.navigation-right .navigation-item {
-  padding: 15px 5px;
-}
-
-/* задает размеры и позиционирует ссылки в правой части */
-/* min тк контент может смениться на текст */
-.navigation-right .navigation-link {
-  position: relative;
-  display: block;
-  min-width: 34px;
-  min-height: 34px;
 }
 
 /* стилизует ссылки навигации */
 .navigation-link {
+  position: relative;
+  display: block;
+  padding: 20px 16px;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -241,71 +202,89 @@ img {
 }
 
 /* стилизует текущую ссылку */
-/* не позиционированный элемент игнорирует z-index */
-.current-navigation-link {
-  position: relative;
+.current-navigation-link::after {
+  position: absolute;
   z-index: 1;
-  text-decoration: underline;
-  text-decoration-color: #756257;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 19.4px;
-  text-underline-position: under;
+  content: "";
+  bottom: -1px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background-color: #756257;
 }
 
-/* создает и позиционирует псевдоэлемент с иконкой поиска */
-.search-icon::before {
+/* прижимает правую навигацию к краю, выравнивает по правой стороне и задает размер */
+.navigation-user {
+  justify-content: end;
+  width: 140px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+/* задает размеры ссылкам в правой части */
+/* min тк контент может смениться на текст */
+.navigation-user .navigation-link {
+  min-width: 44px;
+  padding: 22px 12px;
+}
+
+
+/* создает и позиционирует псевдоэлемент */
+.navigation-user .navigation-link::before {
   content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 19px;
-  height: 19px;
-  background-image: url("../images/interface/search.svg");
+  display: block;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
 
-/* создает и позиционирует псевдоэлемент с иконкой избранного */
+/* добавляет фон с иконкой поиска */
+.search-icon::before {
+  width: 18.5px;
+  height: 18.5px;
+  margin: 1px 0.5px 0.5px 1px;
+  background-image: url("../images/interface/search.svg");
+}
+
+/* добавляет фон с иконкой избранного */
 .favorites-icon::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 18px;
   height: 17px;
+  margin: 2px 2px 1px 0;
   background-image: url("../images/interface/favorites.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 /* оформляет и позиционирует количество избранных элементов */
 .amount-favorites {
   position: absolute;
-  top: -3.5px;
-  left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 11px;
+  left: 19px;
   min-width: 20px;
-  height: 20px;
-  padding: 4px;
+  padding: 5px 4px;
   font-size: 10px;
   font-weight: 400;
   line-height: 10px;
   color: #ffffff;
   background-color: #7db54f;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
-/* назначает пространство кнопке хочу сюда */
-/* height & margin ставят на костыли для выравнивания при переполнении, чтобы кнопка не центровалась */
+/* описывает грид контейнер для красивого переполнения кнопок */
+/* кнопки добавляются только в столбик (этим решается проблема слипания кнопок), грид не даёт схлопываться отступам для правильной центровки */
+/* единственный минус - если кнопка одна, и внутри добавляется ещё одна строка, то маргины расширят хедер */
+/* gap'ы, флексы, инлайн-блоки при переполнении расширяют контейнер до максимальных размеров, а он у нас с запасом, получается лишнее пространство. Любая возможность добавить кнопки в одну строку рождает цепочку некрасивостей в случае переполнения - если какая-то из кнопок все-таки перенесется. Если нужны две кнопки на одной строке - пишите - заверстаем по-красоте! */
+/* во избежании появления второй строки в кнопке, по ширине был оставлен запас */
+/* перебрал сотню вариантов, убил с десяток часов, и пришёл к выводу, что это лучший вариант. Бомбит уже, чес-слово... */
+/* align не дает кнопке вытягиваться в высоту при переполнении в других блоках */
+.button-wrapper {
+  display: grid;
+  align-items: start;
+  max-width: 230px;
+}
+
+/* выравнивает кнопку хочу сюда */
 .button-wanna-here {
-  height: 36px;
-  margin-top: 14px;
+  margin: 14px 0;
   padding: 8px 34px;
 }
 
