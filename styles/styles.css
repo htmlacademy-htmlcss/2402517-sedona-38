@@ -292,7 +292,7 @@ img {
 /* оформляет блок герой */
 .hero {
   min-height: 485px;
-  padding: 51px 70px 25px;
+  padding: 51px 70px 82px;
   color: #ffffff;
   background-image: url("../images/hero-flag.svg"), url("../images/hero-background.jpg");
   background-color: #003905;
