@@ -97,6 +97,7 @@ img {
   background-color: #756157;
   border: 0;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .button-brand {
@@ -858,7 +859,8 @@ img {
 /* содиняет поля для ввода цены */
 .price-area {
   display: flex;
-  gap: 2px;
+  flex-wrap: wrap;
+  gap: 36px;
   width: 288px;
   margin-bottom: 36px;
 }
@@ -910,9 +912,36 @@ img {
 }
 
 /* описывает стили для полосы регулировки цены */
-.price-toggle {
+.range-scale {
+  position: relative;
   width: 100%;
-  margin: 0;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.range-bar {
+  position: absolute;
+  height: 4px;
+  background-color: #ffffff;
+}
+
+.toggle-range {
+  position: absolute;
+  top: -8px;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toggle-min {
+  left: 0;
+}
+
+.toggle-max {
+  right: 0;
 }
 
 /* выравнивает кнопки, флекс ради центровки и gap'a */
