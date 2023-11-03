@@ -477,6 +477,11 @@ img {
   margin-bottom: 20px;
 }
 
+/* добавляет отступ сверху, чтобы при переполнении и с тем же классом текст не слипался */
+.hotel-search-descroption {
+  margin-top: 16px;
+}
+
 /* задает display и отступ кнопке поиска гостиниц */
 /* margin-top кнопке, т.к. этот отступ всегда должен быть перед кнопкой, даже если добавится текст */
 /* ширина кнопки ограничена шириной предыдущего текста для стилевого единообразия */
@@ -512,6 +517,11 @@ img {
   margin-bottom: 20px;
 }
 
+/* добавляет отступ сверху, чтобы при переполнении и с тем же классом текст не слипался */
+.newsletter-description {
+  margin-top: 16px;
+}
+
 /* задает display и отступ формы */
 .newsletter-form {
   display: inline-block;
@@ -540,119 +550,98 @@ img {
 
 /* ----- стили для footer-wrapper ----- */
 /* выравнивает наполнение нижней части подвала */
-/* gap не дает слипаться элементам при переполнении */
 .footer-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  align-items: flex-start;
   padding: 40px 70px 30px;
 }
 
-/* прижимает блок социальных сетей к левому краю */
-/* width фиксирует блок при переполнении, с min-width сетка ломается */
-/* margin учитывает случаи изменения или удаления других блоков, поровну делит пространство, вертикальные отступы для единообразия выравнивания  */
-.social {
-  width: 150px;
-  margin: auto auto auto 0;
-}
-
-/* выравнивает список социальных сетей */
-/* align-items выравнивает содержимое в случае, если контент будет меньше по высоте */
-.social-list {
+/* описывает флексбоксом блоки в футере */
+.footer-align {
   display: flex;
   flex-wrap: wrap;
+}
+
+/* описывает флексбоксом ссылки в футере */
+.footer-link {
+  display: flex;
+  justify-content: center;
   align-items: center;
+  min-height: 50px;
+}
+
+/* задает размеры секции социальных сетей и выравнивает */
+.social {
+  width: 200px;
+  margin-right: auto;
+}
+
+/* сбрасывает браузерные настройки списку социальных сетей */
+.social-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* задает пространство li списка соцсетей */
-.social-item {
-  padding: 5px 3.5px;
+/* задает размеры ссылкам социальных сетей */
+.social-link {
+  min-width: 47px;
 }
 
-/* задает размеры и позиционирует ссылки социальных сетей */
-.social-link {
+/* создает и описывает псевдоэлемент ссылке социальных сетей */
+.social-link::before {
+  content: "";
   position: relative;
-  display: block;
-  min-width: 40px;
-  min-height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 /* создает и выравнивает псевдоэлемент с иконкой вк */
 .vk::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 25px;
-  height: 15px;
+  top: -1px;
+  width: 26px;
+  height: 17px;
   background-image: url("../images/icons/vkontakte.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 /* создает и выравнивает псевдоэлемент с иконкой тг */
 .tg::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 19px;
+  top: -1px;
+  width: 18px;
   height: 16px;
   background-image: url("../images/icons/telegram.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 /* создает и выравнивает псевдоэлемент с иконкой ютуб */
 .yt::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 23px;
+  left: 1px;
+  width: 24px;
   height: 18px;
   background-image: url("../images/icons/youtube.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
-/* выравнивает блок с контактами */
+/* выравнивает блок с контактами по центру */
 .contacts {
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 720px;
+  width: 500px;
   margin: 0 auto;
 }
 
 /* назначает стили ссылке номера телефона */
 .phone-link {
   font-size: 40px;
-  line-height: 40px;
+  line-height: 50px;
   text-decoration: none;
   text-transform: uppercase;
   color: #000000;
 }
 
-/* выравнивает блок с партнерами */
+/* выравнивает блок с партнерами по правой стороне */
 .partners {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: end;
-  align-items: center;
-  gap: 20px;
-  width: 120px;
+  justify-content: flex-end;
+  width: 172px;
   margin-left: auto;
 }
 
