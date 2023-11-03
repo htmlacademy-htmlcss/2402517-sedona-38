@@ -467,22 +467,23 @@ img {
 }
 
 /* ----- cтили для hotel-search ----- */
-/* задает размеры всему блоку, выравнивает контент внутри блока */
+/* задает пространство блоку поиска гостиниц */
 .hotel-search {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 96px 304px;
+  padding: 96px 70px;
 }
 
 /* задает отступ заголовку поиска гостиницы */
-.hotel-search .section-lead {
+.hotel-search-lead {
   margin-bottom: 20px;
 }
 
-/* задает отступ описанию блока поиска */
-.hotel-search .section-description{
-  margin-bottom: 54px;
+/* задает display и отступ кнопке поиска гостиниц */
+/* margin-top кнопке, т.к. этот отступ всегда должен быть перед кнопкой, даже если добавится текст */
+/* ширина кнопки ограничена шириной предыдущего текста для стилевого единообразия */
+.button-hotel-search {
+  display: inline-block;
+  max-width: 600px;
+  margin-top: 54px;
 }
 
 /* ----- стили для секции рассылки ----- */
