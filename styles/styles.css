@@ -489,10 +489,10 @@ img {
 /* ----- стили для секции рассылки ----- */
 /* задает пространство секции рассылки */
 .newsletter {
-  padding: 96px 258px 104px;
+  padding: 96px 70px 105px;
 }
 
-/* задает фон секции рассылки */
+/* задает фон и цвет текста секции рассылки */
 .newsletter-background {
   color: #ffffff;
   background-color: #425ad2;
@@ -503,33 +503,31 @@ img {
 }
 
 /* наследует цвет текста для заголовка рассылки только для блока с фоном */
-.newsletter-background .section-lead {
+.newsletter-background .newsletter-lead {
   color: inherit;
 }
 
 /* задает отступ заголовку рассылки */
-.newsletter .section-lead {
+.newsletter-lead {
   margin-bottom: 20px;
 }
 
-/* задает отступ описанию секции рассылки */
-.newsletter .section-description {
-  margin-bottom: 54px;
-}
-
-/* соединяет поле ввода емайл и кнопку */
+/* задает display и отступ формы */
 .newsletter-form {
-  display: flex;
+  display: inline-block;
+  margin-top: 54px;
 }
 
 /* описывает стили для поля ввода емайл */
 .field {
   width: 452px;
   height: 52px;
+  margin-right: -5px;
   padding: 12px 20px;
   font-family: inherit;
   font-size: inherit;
   line-height: 24px;
+  color: #000000;
   background-color: #f2f2f2;
   border: 0;
   border-radius: 4px 0 0 4px;
