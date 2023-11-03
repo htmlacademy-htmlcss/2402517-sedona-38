@@ -135,7 +135,7 @@ img {
   justify-content: center;
   width: 400px;
   min-height: 385px;
-  padding: 102px 85px;
+  padding: 102px 84px;
 }
 
 /* стилизует заголовок карточки */
@@ -376,10 +376,6 @@ img {
   flex-direction: row-reverse;
 }
 
-.title-underline {
-  margin-bottom: 30px;
-}
-
 /* создает и выравнивает декоративное подчеркивание заголовку */
 .title-underline::after {
   content: "";
@@ -393,6 +389,11 @@ img {
 /* меняет цвет подчеркивания у заголовков saturated */
 .card-saturated .title-underline::after {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* задает отступ после декоративного подчеркивания заголовка */
+.title-underline {
+  margin-bottom: 30px;
 }
 
 /* ----- cтили для recommendations ----- */
@@ -440,18 +441,23 @@ img {
 /* добавляет и выравнивает иконку домика в карту преимуществ */
 /* обращение по nth-child не подойдёт, тк контент может измениться и иконка уже будет не в тему */
 .card-residence::before {
+  position: relative;
+  left: 1px;
   background-image: url("../images/icons/house.svg");
 }
 
-/* добавляет и выравнивает иконку бургера в карту преимуществ */
+/* добавляет иконку бургера в карту преимуществ */
 .card-food::before {
   background-image: url("../images/icons/burger.svg");
 }
 
 /* добавляет и выравнивает иконку подарка в карту преимуществ */
 .card-souvenirs::before {
-  /* height: 76px;
-  margin-top: -1px; */
+  position: relative;
+  left: 1px;
+  height: 76px;
+  margin-top: -1px;
+  margin-bottom: 29px;
   background-image: url("../images/icons/present.svg");
 }
 
