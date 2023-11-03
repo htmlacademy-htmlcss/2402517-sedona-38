@@ -252,9 +252,9 @@ img {
 
 /* добавляет фон с иконкой избранного */
 .favorites-icon::before {
-  width: 18px;
+  width: 19px;
   height: 17px;
-  margin: 2px 2px 1px 0;
+  margin: 2px 1px 1px 0;
   background-image: url("../images/interface/favorites.svg");
 }
 
@@ -263,7 +263,7 @@ img {
   position: absolute;
   white-space: nowrap;
   top: 11px;
-  left: 19px;
+  left: 20px;
   min-width: 20px;
   padding: 5px 4px;
   font-size: 10px;
