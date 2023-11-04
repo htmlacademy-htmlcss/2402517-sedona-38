@@ -905,10 +905,9 @@ img {
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  margin-right: 20px;
+  margin-right: 17px;
   font-size: 18px;
   line-height: 24px;
-  text-align: right;
   text-transform: lowercase;
   color: #000000;
   opacity: 0.3;
