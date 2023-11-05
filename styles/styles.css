@@ -408,6 +408,10 @@ img {
   margin-bottom: 20px;
 }
 
+.recommendations-description {
+  margin-top: 16px;
+}
+
 /* выравнивает список рекомендаций и обнуляет браузерные стили */
 .recommendations-list {
   display: flex;
@@ -487,9 +491,10 @@ img {
 /* margin-top кнопке, т.к. этот отступ всегда должен быть перед кнопкой, даже если добавится текст */
 /* ширина кнопки ограничена шириной предыдущего текста для стилевого единообразия */
 .button-hotel-search {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   max-width: 600px;
-  margin-top: 54px;
+  margin: 54px auto 0;
 }
 
 /* ----- стили для секции рассылки ----- */
@@ -525,15 +530,15 @@ img {
 
 /* задает display и отступ формы */
 .newsletter-form {
-  display: inline-block;
-  margin-top: 54px;
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
 }
 
 /* описывает стили для поля ввода емайл */
 .field {
   width: 452px;
   height: 52px;
-  margin-right: -5px;
   padding: 12px 20px;
   font-family: inherit;
   font-size: inherit;
@@ -656,7 +661,7 @@ img {
 /* задает пространство и цвет текста всему блоку, добавляет фон */
 /* без высоты чутка растягивается и нарушает pperfect */
 .catalog-header {
-  padding: 35px 70px 68px;
+  padding: 35px 70px 70px;
   color: #ffffff;
   background-image: url("../images/filters-background.jpg");
   background-color: #756157;
@@ -689,38 +694,27 @@ img {
 
 /* описывает стили ссылкок в хлебных крошках */
 .breadcrumbs-link {
+  position: relative;
+  display: block;
+  min-width: 13px;
   font-size: 16px;
   color: inherit;
   text-decoration: none;
 }
 
-/* позиционирует li хлебных крошек */
-.breadcrumbs-item {
-  position: relative;
-}
-
-/* задает минимальную ширину первому li крошек */
-/* ширина исключает нулевую ширину li для корректного выравнивания, а значение min позволяет менять контент без его выпадания */
-/* обращение к первому элементу исключает возможность переместить иконку внутри списка на другое место, но ol исключает изменение порядка li => псевдокласс позволяет обойтись без лишнего класса типа breadcrumbs-item-home */
-.breadcrumbs-item:first-child {
-  min-width: 13px;
-}
-
 /* задает внутренний отступ всем li крошек кроме первого */
 /* это позволяет избежать выпадения декоративной стрелки за padding секции-предка при переносе из-за переполнения */
 .breadcrumbs-item:not(:first-child) {
+  position: relative;
   padding-left: 18px;
 }
 
 /* добавляет и выравнивает иконку (относительного первого li) для ссылки на главную в крошках */
 .breadcrumbs-item:first-child .breadcrumbs-link::before {
   content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
   width: 13px;
-  height: 13px;
+  height: 21px;
   margin-top: -1px;
   background-image: url("../images/interface/home-link.svg");
   background-repeat: no-repeat;
@@ -872,6 +866,7 @@ img {
   width: 143px;
   margin-right: -3px;
   padding: 12px 20px;
+  padding-right: 51px;
   font-family: inherit;
   font-size: 18px;
   font-weight: 700;
@@ -879,6 +874,8 @@ img {
   background-color: #f2f2f2;
   border: 0;
   border-radius: 4px 0 0 4px;
+  appearance: none;
+  -moz-appearance: textfield;
 }
 
 /* меняет скругление краев на втором поле */
@@ -891,12 +888,6 @@ img {
 .price-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-/* убирает браузерные стрелки управления числом для мозилы */
-.price-input {
-  appearance: none;
-  -moz-appearance: textfield;
 }
 
 /* описывает стили и расположение лейбла "от"/"до" */
@@ -986,38 +977,24 @@ img {
   margin-right: auto;
 }
 
-/* задает отступы выпадающему списку */
-.select-wrapper {
-  margin-right: 70px;
-}
-
 /* оформляет выпадающий список */
 .control-select {
   min-width: 292px;
   height: 49px;
+  margin-right: 70px;
   padding: 0 20px;
+  padding-right: 32px;
   font-family: inherit;
   font-size: 18px;
   line-height: 21px;
   color: #333333;
   appearance: none;
-  border: 2px solid #e5e5e5;
-  border-radius: 4px;
-}
-
-/* описывает и выравнивает псевдоэлемент селекта - стрелочку */
-.select-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  width: 12px;
-  height: 7px;
-  margin-top: -3.5px;
+  background-color: #ffffff;
   background-image: url("../images/interface/arrowdown.svg");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-position: right 18px center;
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
 }
 
 /* описывает грид контейнер для списка кнопок сортировки */
