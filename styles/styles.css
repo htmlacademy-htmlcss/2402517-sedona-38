@@ -57,7 +57,7 @@ img {
   height: 1px;
   margin: -1px;
   padding: 0;
-  border: 0;
+  border: none;
 }
 
 .page-container {
@@ -95,7 +95,7 @@ img {
   text-transform: uppercase;
   color: #ffffff;
   background-color: #756157;
-  border: 0;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -537,15 +537,21 @@ img {
 
 /* описывает стили для поля ввода емайл */
 .field {
-  width: 452px;
-  height: 52px;
   padding: 12px 20px;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 18px;
+  font-weight: 700;
   line-height: 24px;
   color: #000000;
   background-color: #f2f2f2;
-  border: 0;
+  border: none;
+  border-radius: 4px;
+}
+
+.field-subscribe {
+  width: 452px;
+  height: 52px;
+  font-weight: 400;
   border-radius: 4px 0 0 4px;
 }
 
@@ -780,7 +786,7 @@ img {
 .catalog-filter-group {
   margin: 0;
   padding: 0;
-  border: 0;
+  border: none;
 }
 
 /* описывает стили для легенд */
@@ -865,17 +871,8 @@ img {
 .price-input {
   width: 143px;
   margin-right: -3px;
-  padding: 12px 20px;
   padding-right: 51px;
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 24px;
-  background-color: #f2f2f2;
-  border: 0;
   border-radius: 4px 0 0 4px;
-  appearance: none;
-  -moz-appearance: textfield;
 }
 
 /* меняет скругление краев на втором поле */
@@ -883,9 +880,15 @@ img {
   border-radius: 0 4px 4px 0;
 }
 
+/* убирает стрелки для мозилы */
+.number-input {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
 /* убирает браузерные стрелки управления числом в инпуте (chrome) */
-.price-input::-webkit-outer-spin-button,
-.price-input::-webkit-inner-spin-button {
+.number-input::-webkit-outer-spin-button,
+.number-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -927,7 +930,7 @@ img {
   width: 20px;
   height: 20px;
   background: #ffffff;
-  border: 0;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -1231,4 +1234,91 @@ img {
 .empty-pagination-link {
   font-size: 22px;
   line-height: 26px;
+}
+
+/* ----- модальное окно ---- */
+.modal-container {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(242, 242, 242, 0.8);
+}
+
+.modal {
+  position: relative;
+  width: 717px;
+  margin: auto;
+  padding: 64px 70px;
+  background-color: #ffffff;
+  border-radius: 30px;
+}
+
+.button-modal-close {
+  position: absolute;
+  top: 64px;
+  right: 52px;;
+  width: 52px;
+  height: 52px;
+  background-color: #f2f2f2;
+  background-image: url("../images/interface/button-close.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.modal-title {
+  margin: 0;
+  margin-bottom: 64px;
+  font-size: 30px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+.field-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 48px;
+}
+
+.search-form-label {
+  margin-right: auto;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+
+.search-form-date {
+  width: 440px;
+}
+
+.alerts {
+  position: absolute;
+  left: 0;
+  bottom: -25px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.value-invalid {
+  color: #ff5757;
+}
+
+.ppl-count {
+  width: 110px;
+  margin-left: 46px;
+}
+
+
+.close-modal {
+  /* display: none; */
 }

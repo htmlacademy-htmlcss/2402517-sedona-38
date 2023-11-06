@@ -121,7 +121,7 @@
           <p class="section-description newsletter-description">Только полезная информация и никакого спама,<br> честное бойскаутское!</p>
           <form class="newsletter-form" action="https://echo.htmlacademy.ru/" method="post">
             <label for="subscribe"><span class="visually-hidden">Поле для ввода e-mail</span></label>
-            <input class="field" id="subscribe" type="email" name="newsletter-email" placeholder="Ваш e-mail" required>
+            <input class="field field-subscribe" id="subscribe" type="email" name="newsletter-email" placeholder="Ваш e-mail" required>
             <button class="button button-newsletter button-brand button-weight" type="submit">Подписаться</button>
           </form>
         </section>
@@ -161,6 +161,39 @@
           </section>
         </div>
       </footer>
+    </div>
+    <div class="modal-container close-modal">
+      <div class="modal">
+        <button class="button-modal-close" type="button">
+          <span class="visually-hidden">Закрыть окно</span>
+        </button>
+        <section class="modal-section">
+          <h2 class="modal-title">Поиск гостиницы в Седоне</h2>
+          <form class="search-form" action="https://echo.htmlacademy.ru/" method="get">
+            <p class="field-group">
+              <label class="search-form-label" for="checkin">Дата заезда:</label>
+              <span class="position-wrapper">
+                <input class="field search-form-date" id="checkin" name="checkin-date" type="text" placeholder="Укажите дату" value="27 апреля 2020" required>
+                <span class="alerts value-invalid">Мы не можем отправить вас в прошлое.</span>
+              </span>
+            </p>
+            <p class="field-group">
+              <label class="search-form-label" for="checkout">Дата выезда:</label>
+              <span class="position-wrapper">
+                <input class="field search-form-date" id="checkout" name="checkout-date" type="text" placeholder="Укажите дату" value="1 сентября 2023" required>
+                <span class="alerts">На эти даты есть свободные номера. Пока есть.</span>
+              </span>
+            </p>
+            <p class="field-group">
+              <label class="search-form-label adults-label" for="adults">Взрослые:</label>
+              <input class="field number-input ppl-count" id="adults" name="adults-count" type="number" placeholder="1" value="2" required>
+              <label class="search-form-label children-label" for="children">Дети:</label>
+              <input class="field number-input ppl-count" id="children" name="children-count" type="number" placeholder="0" value="2" required>
+            </p>
+            <button class="button button-brand button-modal-submit" type="submit">Найти</button>
+          </form>
+        </section>
+      </div>
     </div>
   </body>
 </html>

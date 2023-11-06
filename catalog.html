@@ -100,12 +100,12 @@
               <fieldset class="catalog-filter-group price-area">
                 <legend class="catalog-filter-title">Стоимость, ₽:</legend>
                 <div class="position-wrapper">
-                  <input class="price-input" id="minimum" type="number" name="min-price" value="0">
                   <label class="like-placeholder" for="minimum">От</label>
+                  <input class="field number-input price-input" id="minimum" type="number" name="min-price" max="100000" value="0">
                 </div>
                 <div class="position-wrapper">
-                  <input class="price-input price-input-reverse" id="maximum" type="number" name="max-price" value="9000">
                   <label class="like-placeholder" for="maximum">До</label>
+                  <input class="field number-input price-input price-input-reverse" id="maximum" type="number" name="max-price" max="100000" value="9000">
                 </div>
                 <div class="range-scale">
                   <div class="range-bar" style="left: 0; width: 226px;">
