@@ -1405,7 +1405,7 @@ img {
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  display: block;
+  display: none;
   width: 256px;
   padding: 20px 18px 23px 22px;
   font-size: 16px;
