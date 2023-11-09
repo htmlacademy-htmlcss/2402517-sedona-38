@@ -38,7 +38,7 @@
             </li>
           </ul>
           <div class="button-wrapper">
-            <a class="button button-wanna-here" href="#">Хочу сюда!</a>
+            <a class="button button-main button-wanna-here" href="#">Хочу сюда!</a>
           </div>
           </nav>
       </header>
@@ -111,7 +111,7 @@
           <h2 class="visually-hidden">Поиск гостиницы по датам</h2>
           <p class="section-lead hotel-search-lead">Заинтересовались?</p>
           <p class="section-description hotel-search-descroption">Укажите предполагаемые даты поездки,<br> и мы покажем вам лучшие предложения гостиниц в Седоне</p>
-          <a class="button button-hotel-search button-weight" href="#">Поиск гостиницы в Седоне</a>
+          <a class="button button-main button-hotel-search button-weight" href="#">Поиск гостиницы в Седоне</a>
         </section>
       </main>
 
@@ -120,7 +120,9 @@
           <h2 class="section-lead newsletter-lead">Подпишитесь на рассылку</h2>
           <p class="section-description newsletter-description">Только полезная информация и никакого спама,<br> честное бойскаутское!</p>
           <form class="newsletter-form" action="https://echo.htmlacademy.ru/" method="post">
-            <label for="subscribe"><span class="visually-hidden">Поле для ввода e-mail</span></label>
+            <label for="subscribe">
+              <span class="visually-hidden">Поле для ввода e-mail</span>
+            </label>
             <input class="field field-subscribe" id="subscribe" type="email" name="newsletter-email" placeholder="Ваш e-mail" required>
             <button class="button button-newsletter button-brand button-weight" type="submit">Подписаться</button>
           </form>
@@ -173,36 +175,40 @@
             <p class="field-group">
               <label class="search-form-label" for="checkin">Дата заезда:</label>
               <span class="grid-wrapper">
-                <input class="field search-form-date" id="checkin" name="checkin-date" type="text" placeholder="Укажите дату" maxlength="35" value="27 апреля 2020" required>
+                <input class="field search-form-date" id="checkin" name="checkin" type="text" placeholder="Укажите дату" maxlength="35" value="27 апреля 2020" required>
                 <span class="alerts value-invalid">Мы не можем отправить вас в прошлое.</span>
               </span>
             </p>
             <p class="field-group">
               <label class="search-form-label" for="checkout">Дата выезда:</label>
               <span class="grid-wrapper">
-                <input class="field search-form-date" id="checkout" name="checkout-date" type="text" placeholder="Укажите дату" maxlength="35" value="1 сентября 2023" required>
+                <input class="field search-form-date" id="checkout" name="checkout" type="text" placeholder="Укажите дату" maxlength="35" value="1 сентября 2023" required>
                 <span class="alerts">На эти даты есть свободные номера. Пока есть.</span>
               </span>
             </p>
             <p class="field-group count-field-group">
               <span class="adults-group">
                 <label class="search-form-label adults-label" for="adults">Взрослые:</label>
-                <span class="adults-count count-wrapper">
-                  <button class="button-minus button-toggle" type="button"></button>
-                  <input class="field number-input ppl-count" id="adults" name="adults-count" type="number" placeholder="1" min="1" max="99" value="2" required>
-                  <button class="button-plus button-toggle"></button>
-                </span>
+                <button class="button-minus button-toggle" type="button">
+                  <span class="visually-hidden">Увеличить число</span>
+                </button>
+                <input class="field number-input count-input" id="adults" name="adults" type="number" placeholder="1" min="1" max="99" value="2" required>
+                <button class="button-plus button-toggle" type="button">
+                  <span class="Уменьшить число"></span>
+                </button>
               </span>
               <span class="children-group">
                 <label class="search-form-label children-label" for="children">Дети:</label>
                 <button class="info-button button-brand" type="button">
                   <span class="tooltip">Укажите количество детей, которые будут с вами, возраст которых от 6 до 18 лет. Дети до 6 лет размещаются бесплатно.</span>
                 </button>
-                <span class="children-count count-wrapper">
-                  <button class="button-minus button-toggle" type="button"></button>
-                  <input class="field number-input ppl-count" id="children" name="children-count" type="number" placeholder="0" max="99" value="2" required>
-                  <button class="button-plus button-toggle"></button>
-                </span>
+                <button class="button-minus button-toggle" type="button">
+                  <span class="visually-hidden">Увеличить число</span>
+                </button>
+                <input class="field number-input count-input" id="children" name="children" type="number" placeholder="0" min="0" max="99" value="2" required>
+                <button class="button-plus button-toggle" type="button">
+                  <span class="Уменьшить число"></span>
+                </button>
               </span>
             </p>
             <button class="button button-brand button-weight button-modal-submit" type="submit">Найти</button>

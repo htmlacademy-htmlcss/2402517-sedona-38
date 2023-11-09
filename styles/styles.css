@@ -94,10 +94,13 @@ img {
   text-decoration: none;
   text-transform: uppercase;
   color: #ffffff;
-  background-color: #756157;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.button-main {
+  background-color: #756157;
 }
 
 .button-brand {
@@ -108,9 +111,136 @@ img {
   background-color: #7db54f;
 }
 
+.button-transparent {
+  background-color: transparent;
+}
+
 .button-weight {
   font-size: 20px;
   line-height: 36px;
+}
+
+/* ----- состояния для кнопок ----- */
+/* неактивные кнопки */
+.button-brand:disabled,
+.button-main:disabled,
+.button-applied:disabled {
+  background-color: #e5e5e5;
+  cursor: default;
+}
+
+.button-transparent:disabled {
+  opacity: 0.1;
+  cursor: default;
+}
+
+.button-disabled {
+  background-color: #e5e5e5;
+  cursor: default;
+}
+
+.button-transparent-disable {
+  opacity: 0.1;
+  cursor: default;
+}
+
+.button-disabled:focus,
+.button-transparent-disable:focus {
+  outline: 0;
+}
+
+/* основные кнопки */
+.button-main:focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid #756157;
+  background-color: #615048;
+}
+
+@supports not selector(:focus-visible) {
+  .button-main:focus {
+    outline-offset: 3px;
+    outline: 3px solid #756157;
+    background-color: #615048;
+  }
+}
+
+.button-main:not(:disabled):hover {
+  background-color: #615048;
+}
+
+.button-main:not(:disabled):active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #756157;
+}
+
+/* брендовые кнопки */
+.button-brand:focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid #82B3D3;
+  background-color: #68A2CA;
+}
+
+@supports not selector(:focus-visible) {
+  .button-brand:focus {
+    outline-offset: 3px;
+    outline: 3px solid #82B3D3;
+    background-color: #68A2CA;
+  }
+}
+
+.button-brand:not(:disabled):hover {
+  background-color: #68A2CA;
+}
+
+.button-brand:not(:disabled):active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #82B3D3;
+}
+
+/* зеленые кнопки */
+.button-applied:focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid #7DB54F;
+  background-color: #6C9E42;
+}
+
+@supports not selector(:focus-visible) {
+  .button-applied:focus {
+    outline-offset: 3px;
+    outline: 3px solid #7DB54F;
+    background-color: #6C9E42;
+  }
+}
+
+.button-applied:not(:disabled):hover {
+  background-color: #6C9E42;
+}
+
+.button-applied:not(:disabled):active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #7DB54F;
+}
+
+/* прозрачные кнопки */
+.button-transparent:focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid #83B3D3;
+}
+
+@supports not selector(:focus-visible) {
+  .button-transparent:focus {
+    outline-offset: 3px;
+    outline: 3px solid #83B3D3;
+  }
+}
+
+.button-transparent:not(:disabled):hover {
+  opacity: 0.6;
+}
+
+.button-transparent:not(:disabled):active {
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 /* ----- стили для заголовков секций ----- */
@@ -208,9 +338,9 @@ img {
 
 /* стилизует текущую ссылку */
 .current-navigation-link::after {
+  content: "";
   z-index: 1;
   position: absolute;
-  content: "";
   bottom: -1px;
   left: 16px;
   right: 16px;
@@ -549,8 +679,8 @@ img {
 }
 
 .field-subscribe {
-  width: 452px;
-  height: 52px;
+  min-width: 452px;
+  min-height: 52px;
   font-weight: 400;
   border-radius: 4px 0 0 4px;
 }
@@ -558,6 +688,7 @@ img {
 /* обнуляет левые скругления у кнопки, соединенной с полем */
 .button-newsletter {
   border-radius: 0 4px 4px 0;
+  max-width: 452px;
 }
 
 /* ----- стили для footer-wrapper ----- */
@@ -947,16 +1078,9 @@ img {
 
 /* выравнивает кнопки, флекс ради центровки и gap'a */
 .catalog-filter-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
   gap: 32px;
   padding-top: 56px;
-}
-
-/* задает прозрачный фон для кнопки сброса */
-.catalog-filter-reset {
-  background-color: transparent;
 }
 
 /* ----- cтили для hotels-section ----- */
@@ -1187,6 +1311,7 @@ img {
   line-height: 20px;
   color: #333333;
   background-color: #f2f2f2;
+  cursor: default;
 }
 
 /* описывает флексбокс блока пагинации, выравнивает псевдоэлемент */
@@ -1284,7 +1409,6 @@ img {
 
 .field-group {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   margin-top: 0;
   margin-bottom: 4px;
@@ -1328,58 +1452,103 @@ img {
 
 .count-field-group {
   justify-content: space-between;
-}
-
-.ppl-count {
-  width: 110px;
-  padding: 14px 40px;
-  text-align: center;
+  margin-bottom: 48px;
 }
 
 .adults-group {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   width: 247px;
 }
 
-.count-wrapper {
-  position: relative;
-  display: grid;
-  grid-template-columns: 110px;
-  grid-template-rows: 48px minmax(44px, auto);
-  margin-left: auto;
+.count-input {
+  width: 30px;
+  height: 48px;
+  padding: 12px 0;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 0;
 }
 
 .button-toggle {
-  position: absolute;
-  top: 0;
+  position: relative;
   width: 40px;
   height: 48px;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: #f2f2f2;
   border: 0;
-  border-radius: 4px;
   cursor: pointer;
+  outline: 0;
+}
+
+.button-toggle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 2px;
+  background-color: rgba(117, 97, 87, 0.3);
+}
+
+.button-plus::before {
+  height: 14px;
+  -webkit-mask-image: url("../images/interface/button-plus.svg");
+  mask-image: url("../images/interface/button-plus.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 .button-minus {
-  left: 0;
-  background-image: url("../images/interface/button-minus.svg");
+  margin-left: auto;
+  border-radius: 4px 0 0 4px;
 }
 
 .button-plus {
-  left: 70px;
-  background-image: url("../images/interface/button-plus.svg");
+  border-radius: 0 4px 4px 0;
+}
+/* ----- состояния для кнопок + - ----- */
+/* наведение и фокус */
+.button-toggle:not(:disabled):hover::before,
+.button-toggle:focus::before {
+  background-color: #000000;
+}
+
+/* добавляет обводку при фокусе */
+.button-toggle:focus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: content-box;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  outline: 3px solid #82B3D3;
+}
+
+/* нажатие на кнопку */
+.button-toggle:not(:disabled):active::before {
+  background-color: rgba(117, 97, 87, 0.3);
+}
+
+/* неактивность */
+.button-toggle:disabled::before {
+  background-color: #e5e5e5;
+}
+
+/* неактивность */
+.button-toggle:disabled {
+  cursor: default;
 }
 
 .children-group {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   min-width: 242px;
-  max-width: 247px;
 }
 
 .children-label {
@@ -1391,6 +1560,7 @@ img {
   width: 26px;
   height: 26px;
   margin: 11px 0;
+  margin-right: 10.5px;
   font-family: inherit;
   background-image: url("../images/interface/info.svg");
   background-repeat: no-repeat;
@@ -1407,7 +1577,7 @@ img {
   transform: translateX(-50%);
   display: none;
   width: 256px;
-  padding: 20px 18px 23px 22px;
+  padding: 21px 18px 23px 22px;
   font-size: 16px;
   line-height: 20px;
   text-align: start;
@@ -1417,18 +1587,14 @@ img {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.3)
 }
 
-
-/* почему не видит? */
 .tooltip::before {
+  content: "";
   position: absolute;
-  top: -9px;
+  top: -19px;
   left: 50%;
   transform: translateX(-50%);
-  width: 19px;
-  height: 9px;
-  background-image: url("../images/interface/triangle.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  border: solid 11px transparent;
+  border-bottom: 10px solid #333333;
 }
 
 .info-button:hover .tooltip,
@@ -1444,5 +1610,5 @@ img {
 }
 
 .close-modal {
-  /* display: none; */
+  display: none;
 }
