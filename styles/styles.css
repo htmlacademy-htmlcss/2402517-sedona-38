@@ -1405,12 +1405,52 @@ img {
   width: 52px;
   height: 52px;
   background-color: #f2f2f2;
-  background-image: url("../images/interface/button-close.svg");
-  background-repeat: no-repeat;
-  background-position: center;
   border: 0;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.button-modal-close::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #000000;
+  -webkit-mask-image: url("../images/interface/button-close.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("../images/interface/button-close.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.button-modal-close:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.button-modal-close:focus-visible {
+  background-color: #E6E6E6;
+  outline: 3px solid #83B3D3;
+}
+
+@supports not selector(:focus-visible) {
+  .button-modal-close:focus {
+    background-color: #E6E6E6;
+    outline: 3px solid #83B3D3;
+  }
+}
+
+.button-modal-close:not(:disabled):hover,
+.button-modal-close:not(:disabled):active {
+  background-color: #E6E6E6;
+}
+
+.button-modal-close:not(:disabled):active::before {
+  opacity: 0.3;
 }
 
 .modal-title {
@@ -1466,7 +1506,12 @@ img {
 }
 
 .count-field-group {
+  flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.short-group {
   margin-bottom: 48px;
 }
 
@@ -1526,14 +1571,23 @@ img {
   border-radius: 0 4px 4px 0;
 }
 /* ----- состояния для кнопок + - ----- */
-/* наведение и фокус */
-.button-toggle:not(:disabled):hover::before,
-.button-toggle:focus::before {
+/* неактивность */
+.button-toggle:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* фокус */
+.button-toggle:focus-visible::before {
   background-color: #000000;
 }
 
+.button-toggle:focus-visible {
+  background-color: #E6E6E6;
+}
+
 /* добавляет обводку при фокусе */
-.button-toggle:focus::after {
+.button-toggle:focus-visible::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -1546,19 +1600,46 @@ img {
   outline: 3px solid #82B3D3;
 }
 
+@supports not selector(:focus-visible) {
+  .button-toggle:focus::before {
+    background-color: #000000;
+  }
+
+  .button-toggle:focus {
+    background-color: #E6E6E6;
+  }
+
+  /* добавляет обводку при фокусе */
+  .button-toggle:focus::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: content-box;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    outline: 3px solid #82B3D3;
+  }
+}
+
+.button-toggle:not(:disabled):hover::before {
+  background-color: #000000;
+}
+
+.button-toggle:not(:disabled):hover {
+  background-color: #E6E6E6;
+}
+
 /* нажатие на кнопку */
 .button-toggle:not(:disabled):active::before {
-  background-color: rgba(117, 97, 87, 0.3);
+  background-color: #000000;
+  opacity: 0.2;
 }
 
-/* неактивность */
-.button-toggle:disabled::before {
-  background-color: #e5e5e5;
-}
-
-/* неактивность */
-.button-toggle:disabled {
-  cursor: default;
+.button-toggle:not(:disabled):active {
+  background-color: #E6E6E6;
 }
 
 .children-group {
@@ -1578,6 +1659,7 @@ img {
   margin: 11px 0;
   margin-right: 10.5px;
   font-family: inherit;
+  background-color: #83B3D3;
   background-image: url("../images/interface/info.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -1613,10 +1695,31 @@ img {
   border-bottom: 10px solid #333333;
 }
 
-.info-button:hover .tooltip,
-.info-button:focus .tooltip {
+.info-button:focus-visible .tooltip {
   display: block;
 }
+
+.info-button:focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid #83B3D3;
+}
+
+@supports not selector(:focus-visible) {
+  .info-button:focus .tooltip {
+    display: block;
+    outline-offset: 3px;
+    outline: 3px solid #83B3D3;
+  }
+
+  .info-button:focus {
+    outline-offset: 3px;
+    outline: 3px solid #83B3D3;
+  }
+}
+
+.info-button:hover .tooltip {
+  display: block;
+  }
 
 .button-modal-submit {
   width: 100%;
