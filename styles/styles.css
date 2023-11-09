@@ -1477,6 +1477,7 @@ img {
 }
 
 .count-input {
+  z-index: 1;
   width: 30px;
   height: 48px;
   padding: 12px 0;
@@ -1624,6 +1625,10 @@ img {
   border-radius: 10px;
 }
 
+.button-modal-submit:not(:disabled):active {
+  background-color: #68A2CA;
+}
+
 .close-modal {
-  display: none;
+  /* display: none; */
 }
