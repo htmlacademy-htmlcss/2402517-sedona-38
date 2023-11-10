@@ -134,38 +134,16 @@ img {
   cursor: default;
 }
 
-.button-disabled {
-  background-color: #e5e5e5;
-  cursor: default;
-}
-
-.button-transparent-disable {
-  opacity: 0.1;
-  cursor: default;
-}
-
-.button-disabled:focus,
-.button-transparent-disable:focus {
-  outline: 0;
-}
-
 /* основные кнопки */
-.button-main:focus-visible {
-  outline-offset: 3px;
-  outline: 3px solid #756157;
+.button-main:focus-visible,
+.button-main:not(:disabled):hover {
   background-color: #615048;
 }
 
 @supports not selector(:focus-visible) {
   .button-main:focus {
-    outline-offset: 3px;
-    outline: 3px solid #756157;
     background-color: #615048;
   }
-}
-
-.button-main:not(:disabled):hover {
-  background-color: #615048;
 }
 
 .button-main:not(:disabled):active {
@@ -174,22 +152,15 @@ img {
 }
 
 /* брендовые кнопки */
-.button-brand:focus-visible {
-  outline-offset: 3px;
-  outline: 3px solid #82B3D3;
+.button-brand:focus-visible,
+.button-brand:not(:disabled):hover {
   background-color: #68A2CA;
 }
 
 @supports not selector(:focus-visible) {
   .button-brand:focus {
-    outline-offset: 3px;
-    outline: 3px solid #82B3D3;
     background-color: #68A2CA;
   }
-}
-
-.button-brand:not(:disabled):hover {
-  background-color: #68A2CA;
 }
 
 .button-brand:not(:disabled):active {
@@ -198,22 +169,15 @@ img {
 }
 
 /* зеленые кнопки */
-.button-applied:focus-visible {
-  outline-offset: 3px;
-  outline: 3px solid #7DB54F;
+.button-applied:focus-visible,
+.button-applied:not(:disabled):hover {
   background-color: #6C9E42;
 }
 
 @supports not selector(:focus-visible) {
   .button-applied:focus {
-    outline-offset: 3px;
-    outline: 3px solid #7DB54F;
     background-color: #6C9E42;
   }
-}
-
-.button-applied:not(:disabled):hover {
-  background-color: #6C9E42;
 }
 
 .button-applied:not(:disabled):active {
@@ -222,18 +186,6 @@ img {
 }
 
 /* прозрачные кнопки */
-.button-transparent:focus-visible {
-  outline-offset: 3px;
-  outline: 3px solid #83B3D3;
-}
-
-@supports not selector(:focus-visible) {
-  .button-transparent:focus {
-    outline-offset: 3px;
-    outline: 3px solid #83B3D3;
-  }
-}
-
 .button-transparent:not(:disabled):hover {
   opacity: 0.6;
 }
@@ -262,11 +214,7 @@ img {
   opacity: 0.3;
 }
 
-.field:focus {
-  background-color: #E6E6E6;
-  outline: 3px solid #83B3D3;
-}
-
+.field:focus,
 .field:not(:disabled):hover {
   background-color: #E6E6E6;
 }
@@ -903,7 +851,6 @@ img {
 }
 
 /* выравнивает список чекбоксов и радиокнопок */
-/* grid ради gap'а, через margin у li больше кода и замутнее из-за обнуления last-child */
 .catalog-filter-list {
   display: grid;
   gap: 16px;
@@ -1426,21 +1373,16 @@ img {
   cursor: default;
 }
 
-.button-modal-close:focus-visible {
+.button-modal-close:focus-visible,
+.button-modal-close:not(:disabled):hover,
+.button-modal-close:not(:disabled):active {
   background-color: #E6E6E6;
-  outline: 3px solid #83B3D3;
 }
 
 @supports not selector(:focus-visible) {
   .button-modal-close:focus {
     background-color: #E6E6E6;
-    outline: 3px solid #83B3D3;
   }
-}
-
-.button-modal-close:not(:disabled):hover,
-.button-modal-close:not(:disabled):active {
-  background-color: #E6E6E6;
 }
 
 .button-modal-close:not(:disabled):active::before {
@@ -1595,7 +1537,7 @@ img {
   width: 20px;
   height: 20px;
   border-radius: 4px;
-  outline: 3px solid #82B3D3;
+  outline-style: auto;
 }
 
 @supports not selector(:focus-visible) {
@@ -1618,7 +1560,7 @@ img {
     width: 20px;
     height: 20px;
     border-radius: 4px;
-    outline: 3px solid #82B3D3;
+    outline-style: auto;
   }
 }
 
@@ -1655,7 +1597,7 @@ img {
 }
 
 .tooltip {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   top: 40px;
   left: 50%;
@@ -1682,18 +1624,10 @@ img {
   border-bottom: 10px solid #333333;
 }
 
-  .info-button:focus .tooltip {
-    display: block;
-  }
-
-  .info-button:focus {
-    outline-offset: 3px;
-    outline: 3px solid #83B3D3;
-  }
-
+.info-button:focus .tooltip,
 .info-button:hover .tooltip {
   display: block;
-  }
+}
 
 .button-modal-submit {
   width: 100%;
