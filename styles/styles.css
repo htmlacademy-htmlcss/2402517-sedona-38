@@ -219,6 +219,14 @@ img {
   background-color: #E6E6E6;
 }
 
+/* ----- плейсхолдер ----- */
+::placeholder,
+::-ms-input-placeholder,
+:-ms-input-placeholder {
+  color: #000000;
+  opacity: 0.6;
+}
+
 /* ----- стили для заголовков секций ----- */
 .section-lead {
   margin-top: 0;
@@ -695,37 +703,61 @@ img {
   min-width: 47px;
 }
 
+.social-link:focus-visible::before,
+.social-link:hover::before {
+  background-color: #68a2ca;
+}
+
+@supports not selector(:focus-visible) {
+  .social-link:focus::before {
+    background-color: #68a2ca;
+  }
+}
+
+.social-link:active::before {
+  background-color: rgba(104, 162, 202, 0.3);
+}
+
 /* создает и описывает псевдоэлемент ссылке социальных сетей */
 .social-link::before {
   content: "";
   position: relative;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  top: -1px;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
 }
 
 /* создает и выравнивает псевдоэлемент с иконкой вк */
 .vk::before {
-  top: -1px;
-  width: 26px;
-  height: 17px;
-  background-image: url("../images/icons/vkontakte.svg");
+  width: 24px;
+  height: 14px;
+  background-color: #83b3d3;
+  -webkit-mask-image: url("../images/icons/vkontakte.svg");
+  mask-image: url("../images/icons/vkontakte.svg");
 }
 
 /* создает и выравнивает псевдоэлемент с иконкой тг */
 .tg::before {
-  top: -1px;
+  top: -2px;
   width: 18px;
   height: 16px;
-  background-image: url("../images/icons/telegram.svg");
+  background-color: #83b3d3;
+  -webkit-mask-image: url("../images/icons/telegram.svg");
+  mask-image: url("../images/icons/telegram.svg");
 }
 
 /* создает и выравнивает псевдоэлемент с иконкой ютуб */
 .yt::before {
   left: 1px;
-  width: 24px;
-  height: 18px;
-  background-image: url("../images/icons/youtube.svg");
+  width: 22px;
+  height: 17px;
+  background-color: #83b3d3;
+  -webkit-mask-image: url("../images/icons/youtube.svg");
+  mask-image: url("../images/icons/youtube.svg");
 }
 
 /* выравнивает блок с контактами по центру */
@@ -744,6 +776,21 @@ img {
   color: #000000;
 }
 
+.phone-link:focus-visible,
+.phone-link:hover {
+  color: #756157;
+}
+
+@supports not selector(:focus-visible) {
+  .phone-link:focus {
+    color: #756157;
+  }
+}
+
+.phone-link:active {
+  color: rgba(117, 97, 87, 0.3);
+}
+
 /* выравнивает блок с партнерами по правой стороне */
 .partners {
   justify-content: flex-end;
@@ -754,6 +801,22 @@ img {
 /* задает display логотипу партнеров */
 .academy-logo {
   display: block;
+  fill: #000000;
+}
+
+.academy-link:focus-visible .academy-logo,
+.academy-link:hover .academy-logo {
+  fill: #756157;
+}
+
+@supports not selector(:focus-visible) {
+  .academy-link:focus .academy-logo {
+    fill: #756157;
+  }
+}
+
+.academy-link:active .academy-logo{
+  fill: rgba(117, 97, 87, 0.3);
 }
 
 /* ----- ----- catalog.html ----- -----  */
@@ -800,6 +863,15 @@ img {
   font-size: 16px;
   color: inherit;
   text-decoration: none;
+}
+
+/* состояния для хлебных крошек */
+.breadcrumbs-link[href]:hover {
+  opacity: 0.6;
+}
+
+.breadcrumbs-link[href]:active {
+  opacity: 0.3;
 }
 
 /* задает внутренний отступ всем li крошек кроме первого */
@@ -890,6 +962,7 @@ img {
 /* выравнивает чекбоксы и лейблы */
 .catalog-filter-item {
   display: flex;
+  align-items: center;
   gap: 16px;
 }
 
@@ -905,10 +978,30 @@ img {
   width: 20px;
   height: 20px;
   margin: 0;
-  margin-top: 1.5px;
   appearance: none;
   background-color: #ffffff;
   border-radius: 4px;
+}
+
+/* отключен */
+.control:disabled,
+.control-input:disabled,
+.control-input:disabled .control {
+  opacity: 0.1;
+}
+
+/* наведение */
+.control:not(:disabled):hover,
+.control-input:not(:disabled):hover,
+.control-input:not(:disabled):hover .control {
+  opacity: 0.6;
+}
+
+/* нажатие */
+.control:not(:disabled):active,
+.control-input:not(:disabled):active,
+.control-input:not(:disabled):active .control {
+  opacity: 0.3;
 }
 
 /* описывает состояние выбранного чекбокса */
@@ -1018,10 +1111,19 @@ img {
   top: -8px;
   width: 20px;
   height: 20px;
-  background: #ffffff;
+  background-color: #ffffff;
   border: 0;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.toggle-range:disabled {
+  background-color: #a8a8a8;
+  cursor: default;
+}
+
+.toggle-range:not(:disabled):active {
+  outline: 2px solid #83b3d3;
 }
 
 /* позиционирует кнопку минимальной цены */
@@ -1082,6 +1184,16 @@ img {
   border-radius: 4px;
 }
 
+.control-select:disabled {
+  color: #000000;
+  border-color: #000000;
+  opacity: 0.3;
+}
+
+.control-select:not(:disabled):hover {
+  outline-style: auto;
+}
+
 /* описывает грид контейнер для списка кнопок сортировки */
 .sorting-option-list {
   display: grid;
@@ -1103,6 +1215,12 @@ img {
   border: 2px solid #e5e5e5;
   border-radius: 4px;
 }
+
+.sorting-option-link[href]:hover,
+.sorting-option-link[href]:active {
+  border-color: #000000;
+}
+
 
 /* описывает состояние текущей ссылки сортировки */
 .current-option-link {
