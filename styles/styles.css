@@ -1028,14 +1028,15 @@ img {
 
 /* убирает стрелки для мозилы */
 .number-input {
-  appearance: none;
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 /* убирает браузерные стрелки управления числом в инпуте (chrome) */
 .number-input::-webkit-outer-spin-button,
 .number-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 
