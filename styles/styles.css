@@ -837,7 +837,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  max-width: 600px;
+  max-width: 650px;
   margin: 0;
   margin-bottom: 40px;
   padding: 0;
@@ -859,6 +859,11 @@ img {
 .breadcrumbs-item:not(:first-child) {
   position: relative;
   padding-left: 18px;
+}
+
+.breadcrumbs-item:first-child .breadcrumbs-link {
+  padding: 5px;
+  margin: -5px;
 }
 
 /* добавляет и выравнивает иконку (относительного первого li) для ссылки на главную в крошках */
@@ -893,24 +898,14 @@ img {
 /* выравнивает блок с фильтрами */
 .catalog-filter {
   display: flex;
-}
-
-/* выравнивает левую сторону фильтров */
-/* min-width (с запасом на различное отображение шрифтов) исключает перенос элементов при переполнении соседнего блока */
-/* margin-right выдерживает расстояние равное gap между блоками, в случае их расширения при изменении контента, тем самым, в связке с margin-left:auto у соседнего блока, гибко описывает их максимальную ширину */
-.catalog-filter-left {
-  display: flex;
   flex-wrap: wrap;
-  gap: 70px;
-  min-width: 370px;
-  margin-right: 70px;
+  gap: 71px;
 }
 
 /* выравнивает список чекбоксов и радиокнопок */
-/* flex ради gap'а, через margin у li больше кода и замутнее из-за обнуления last-child */
+/* grid ради gap'а, через margin у li больше кода и замутнее из-за обнуления last-child */
 .catalog-filter-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 16px;
   margin: 0;
   padding: 0;
@@ -918,7 +913,7 @@ img {
 }
 
 /* выравнивает правую сторону фильтров */
-/* min-width (с запасом на разное отображение шрифтов) исключает перенос элементов при переполнении соседнего блока */
+/* min-width c запасом исключает перенос элементов при переполнении соседнего блока */
 .catalog-filter-right {
   display: flex;
   justify-content: end;
@@ -1229,10 +1224,8 @@ img {
   border-radius: 4px;
 }
 
-/* задает display ссылкам, отменяет браузерные стили */
-/* инлайновый элемент вытягивается, поэтому нужен блок */
+/* отменяет браузерные стили */
 .hotel-link {
-  display: block;
   text-decoration: none;
   color: #000000;
 }
@@ -1248,7 +1241,7 @@ img {
 }
 
 /* стилизует и выравнивает заголовок карточки отеля */
-.hotel-link .card-title {
+.hotel-title {
   margin-bottom: 0;
   text-transform: none;
 }
@@ -1714,5 +1707,5 @@ img {
 }
 
 .close-modal {
-  /* display: none; */
+  display: none;
 }
