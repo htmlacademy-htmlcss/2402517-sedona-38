@@ -1028,8 +1028,8 @@ img {
 
 /* убирает стрелки для мозилы */
 .number-input {
-  appearance: none;
   -moz-appearance: textfield;
+  appearance: none;
 }
 
 /* убирает браузерные стрелки управления числом в инпуте (chrome) */
@@ -1469,7 +1469,7 @@ img {
   margin-bottom: 4px;
 }
 
-.grid-wrapper {
+.alert-place-wrapper {
   display: grid;
   grid-template-columns: 440px;
   grid-template-rows: 48px minmax(44px, auto);
@@ -1477,8 +1477,10 @@ img {
 }
 
 .search-form-label {
+  display: flex;
+  align-items: center;
   max-width: 135px;
-  margin: 12px 0;
+  min-height: 48px;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -1501,7 +1503,7 @@ img {
   background-color: #ffffff;
 }
 
-.value-invalid {
+.alerts-value-invalid {
   color: #ff5757;
 }
 
@@ -1512,13 +1514,15 @@ img {
 }
 
 .short-group {
+  display: flex;
+  align-items: flex-start;
+  min-width: 247px;
   margin-bottom: 48px;
 }
 
-.adults-group {
-  display: flex;
-  align-items: flex-start;
-  width: 247px;
+.short-group:nth-of-type(2) .search-form-label {
+  padding-left: 5px;
+  text-align: right;
 }
 
 .count-input {
@@ -1642,22 +1646,11 @@ img {
   background-color: #E6E6E6;
 }
 
-.children-group {
-  display: flex;
-  align-items: flex-start;
-  min-width: 242px;
-}
-
-.children-label {
-  margin-right: 10.5px;
-}
-
 .info-button {
   position: relative;
   width: 26px;
   height: 26px;
-  margin: 11px 0;
-  margin-right: 10.5px;
+  margin: 11px 10.5px;
   font-family: inherit;
   background-color: #83B3D3;
   background-image: url("../images/interface/info.svg");
@@ -1695,27 +1688,14 @@ img {
   border-bottom: 10px solid #333333;
 }
 
-.info-button:focus-visible .tooltip {
-  display: block;
-}
-
-.info-button:focus-visible {
-  outline-offset: 3px;
-  outline: 3px solid #83B3D3;
-}
-
-@supports not selector(:focus-visible) {
   .info-button:focus .tooltip {
     display: block;
-    outline-offset: 3px;
-    outline: 3px solid #83B3D3;
   }
 
   .info-button:focus {
     outline-offset: 3px;
     outline: 3px solid #83B3D3;
   }
-}
 
 .info-button:hover .tooltip {
   display: block;
