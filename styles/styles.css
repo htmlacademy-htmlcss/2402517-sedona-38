@@ -154,35 +154,35 @@ img {
 /* брендовые кнопки */
 .button-brand:focus-visible,
 .button-brand:not(:disabled):hover {
-  background-color: #68A2CA;
+  background-color: #68a2ca;
 }
 
 @supports not selector(:focus-visible) {
   .button-brand:focus {
-    background-color: #68A2CA;
+    background-color: #68a2ca;
   }
 }
 
 .button-brand:not(:disabled):active {
   color: rgba(255, 255, 255, 0.3);
-  background-color: #82B3D3;
+  background-color: #82b3d3;
 }
 
 /* зеленые кнопки */
 .button-applied:focus-visible,
 .button-applied:not(:disabled):hover {
-  background-color: #6C9E42;
+  background-color: #6c9e42;
 }
 
 @supports not selector(:focus-visible) {
   .button-applied:focus {
-    background-color: #6C9E42;
+    background-color: #6c9e42;
   }
 }
 
 .button-applied:not(:disabled):active {
   color: rgba(255, 255, 255, 0.3);
-  background-color: #7DB54F;
+  background-color: #7db54f;
 }
 
 /* прозрачные кнопки */
@@ -216,7 +216,7 @@ img {
 
 .field:focus,
 .field:not(:disabled):hover {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 
 /* ----- плейсхолдер ----- */
@@ -280,7 +280,55 @@ img {
 /* display block и width не нужны, т.к. это флекс-элемент */
 .logo-link {
   z-index: 1;
+  position: relative;
   margin: 0 28px -6px 0;
+}
+
+.logo-link[href]:focus-visible::before,
+.logo-link[href]:hover::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 110%;
+  background-color: rgba(117, 97, 87, 0.6);
+  -webkit-mask-image: url("../images/logo-sedona.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: url("../images/logo-sedona.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+@supports not selector(:focus-visible) {
+  .logo-link[href]:focus::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110%;
+    height: 110%;
+    background-color: rgba(117, 97, 87, 0.6);
+    -webkit-mask-image: url("../images/logo-sedona.svg");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    mask-image: url("../images/logo-sedona.svg");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+  }
+}
+
+.logo-link[href]:active::before {
+  background-color: rgba(117, 97, 87, 0.3);
 }
 
 /* задает display картинке логотипа */
@@ -320,6 +368,25 @@ img {
   color: #000000;
 }
 
+.navigation-link[href]:focus-visible {
+  color: #756157;
+  outline-offset: -2px;
+}
+
+@supports not selector(:focus-visible) {
+  .navigation-link[href]:focus {
+    color: #756157;
+  }
+}
+
+.navigation-link[href]:hover {
+  color: #756157;
+}
+
+.navigation-link[href]:active {
+  color: rgba(117, 97, 87, 0.3);
+}
+
 /* стилизует текущую ссылку */
 .current-navigation-link::after {
   content: "";
@@ -352,9 +419,28 @@ img {
 .navigation-user .navigation-link::before {
   content: "";
   display: block;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-color: #000000;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.navigation-user .navigation-link:focus-visible::before,
+.navigation-user .navigation-link:hover::before {
+  background-color: #756257;
+}
+
+@supports not selector(:focus-visible) {
+  .navigation-user .navigation-link:focus::before {
+    background-color: #756257;
+  }
+}
+
+.navigation-user .navigation-link:active::before {
+  background-color: rgba(117, 97, 87, 0.3);
 }
 
 /* добавляет фон с иконкой поиска */
@@ -362,7 +448,8 @@ img {
   width: 18.5px;
   height: 18.5px;
   margin: 1px 0.5px 0.5px 1px;
-  background-image: url("../images/interface/search.svg");
+  -webkit-mask-image: url("../images/interface/search.svg");
+  mask-image: url("../images/interface/search.svg");
 }
 
 /* добавляет фон с иконкой избранного */
@@ -370,7 +457,8 @@ img {
   width: 19px;
   height: 17px;
   margin: 2px 1px 1px 0;
-  background-image: url("../images/interface/favorites.svg");
+  -webkit-mask-image: url("../images/interface/favorites.svg");
+  mask-image: url("../images/interface/favorites.svg");
 }
 
 /* оформляет и позиционирует количество избранных элементов */
@@ -378,7 +466,7 @@ img {
   position: absolute;
   white-space: nowrap;
   top: 11px;
-  left: 20px;
+  left: 19px;
   min-width: 20px;
   padding: 5px 4px;
   font-size: 10px;
@@ -1295,6 +1383,21 @@ img {
   color: #000000;
 }
 
+.hotel-link:focus-visible,
+.hotel-link:hover {
+  color: #756157;
+}
+
+@supports not selector(:focus-visible) {
+  .hotel-link:focus {
+    color: #756157;
+  }
+}
+
+.hotel-link:active {
+  color: rgba(117, 97, 87, 0.3);
+}
+
 /* задает display картинке отеля в карточке */
 .hotel-card-img {
   display: block;
@@ -1494,12 +1597,12 @@ img {
 .button-modal-close:focus-visible,
 .button-modal-close:not(:disabled):hover,
 .button-modal-close:not(:disabled):active {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 
 @supports not selector(:focus-visible) {
   .button-modal-close:focus {
-    background-color: #E6E6E6;
+    background-color: #e6e6e6;
   }
 }
 
@@ -1641,7 +1744,7 @@ img {
 }
 
 .button-toggle:focus-visible {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 
 /* добавляет обводку при фокусе */
@@ -1664,7 +1767,7 @@ img {
   }
 
   .button-toggle:focus {
-    background-color: #E6E6E6;
+    background-color: #e6e6e6;
   }
 
   /* добавляет обводку при фокусе */
@@ -1687,7 +1790,7 @@ img {
 }
 
 .button-toggle:not(:disabled):hover {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 
 /* нажатие на кнопку */
@@ -1697,7 +1800,7 @@ img {
 }
 
 .button-toggle:not(:disabled):active {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 
 .info-button {
@@ -1706,7 +1809,7 @@ img {
   height: 26px;
   margin: 11px 10.5px;
   font-family: inherit;
-  background-color: #83B3D3;
+  background-color: #83b3d3;
   background-image: url("../images/interface/info.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -1755,7 +1858,7 @@ img {
 }
 
 .button-modal-submit:not(:disabled):active {
-  background-color: #68A2CA;
+  background-color: #68a2ca;
 }
 
 .close-modal {
