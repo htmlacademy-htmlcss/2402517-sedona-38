@@ -99,11 +99,11 @@
                 <legend class="catalog-filter-title">Стоимость, ₽:</legend>
                 <div class="position-wrapper">
                   <label class="like-placeholder" for="minimum">От</label>
-                  <input class="field number-input price-input" id="minimum" type="number" name="min-price" max="100000" value="0">
+                  <input class="field number-input price-input" id="minimum" type="number" name="min-price" placeholder="0" min="0" max="100000" value="0" required>
                 </div>
                 <div class="position-wrapper">
                   <label class="like-placeholder" for="maximum">До</label>
-                  <input class="field number-input price-input price-input-reverse" id="maximum" type="number" name="max-price" max="100000" value="9000">
+                  <input class="field number-input price-input price-input-reverse" id="maximum" type="number" name="max-price" placeholder="12000" min="1500" max="100000" value="9000" required>
                 </div>
                 <div class="range-scale">
                   <div class="range-bar" style="left: 0; width: 226px;">
