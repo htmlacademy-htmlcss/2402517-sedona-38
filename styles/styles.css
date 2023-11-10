@@ -703,49 +703,61 @@ img {
   min-width: 47px;
 }
 
+.social-link:focus-visible::before,
+.social-link:hover::before {
+  background-color: #68a2ca;
+}
+
+@supports not selector(:focus-visible) {
+  .social-link:focus::before {
+    background-color: #68a2ca;
+  }
+}
+
+.social-link:active::before {
+  background-color: rgba(104, 162, 202, 0.3);
+}
+
 /* создает и описывает псевдоэлемент ссылке социальных сетей */
 .social-link::before {
   content: "";
   position: relative;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  top: -1px;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
 }
 
 /* создает и выравнивает псевдоэлемент с иконкой вк */
 .vk::before {
-  top: -1px;
-  width: 26px;
-  height: 17px;
+  width: 24px;
+  height: 14px;
   background-color: #83b3d3;
   -webkit-mask-image: url("../images/icons/vkontakte.svg");
-  -webkit-mask-repeat: no-repeat;
   mask-image: url("../images/icons/vkontakte.svg");
-  mask-repeat: no-repeat;
 }
 
 /* создает и выравнивает псевдоэлемент с иконкой тг */
 .tg::before {
-  top: -1px;
+  top: -2px;
   width: 18px;
   height: 16px;
   background-color: #83b3d3;
   -webkit-mask-image: url("../images/icons/telegram.svg");
-  -webkit-mask-repeat: no-repeat;
   mask-image: url("../images/icons/telegram.svg");
-  mask-repeat: no-repeat;
 }
 
 /* создает и выравнивает псевдоэлемент с иконкой ютуб */
 .yt::before {
   left: 1px;
-  width: 24px;
-  height: 18px;
+  width: 22px;
+  height: 17px;
   background-color: #83b3d3;
   -webkit-mask-image: url("../images/icons/youtube.svg");
-  -webkit-mask-repeat: no-repeat;
   mask-image: url("../images/icons/youtube.svg");
-  mask-repeat: no-repeat;
 }
 
 /* выравнивает блок с контактами по центру */
@@ -764,6 +776,21 @@ img {
   color: #000000;
 }
 
+.phone-link:focus-visible,
+.phone-link:hover {
+  color: #756157;
+}
+
+@supports not selector(:focus-visible) {
+  .phone-link:focus {
+    color: #756157;
+  }
+}
+
+.phone-link:active {
+  color: rgba(117, 97, 87, 0.3);
+}
+
 /* выравнивает блок с партнерами по правой стороне */
 .partners {
   justify-content: flex-end;
@@ -774,6 +801,22 @@ img {
 /* задает display логотипу партнеров */
 .academy-logo {
   display: block;
+  fill: #000000;
+}
+
+.academy-link:focus-visible .academy-logo,
+.academy-link:hover .academy-logo {
+  fill: #756157;
+}
+
+@supports not selector(:focus-visible) {
+  .academy-link:focus .academy-logo {
+    fill: #756157;
+  }
+}
+
+.academy-link:active .academy-logo{
+  fill: rgba(117, 97, 87, 0.3);
 }
 
 /* ----- ----- catalog.html ----- -----  */
