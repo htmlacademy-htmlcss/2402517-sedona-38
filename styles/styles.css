@@ -334,6 +334,8 @@ img {
 /* задает display картинке логотипа */
 .logo {
   display: block;
+  width: 140px;
+  height: 70px;
 }
 
 /* выравнивает блок навигации */
@@ -350,10 +352,14 @@ img {
 .navigation-list {
   display: flex;
   flex-wrap: wrap;
+  width: 500px;
   margin: 0;
   padding: 0;
-  width: 500px;
   list-style: none;
+}
+
+.navigation-list:nth-child(1) {
+  margin-right: auto;
 }
 
 /* стилизует ссылки навигации */
@@ -399,11 +405,10 @@ img {
   background-color: #756257;
 }
 
-/* прижимает правую навигацию к краю, выравнивает по правой стороне и задает размер */
+/* выравнивает по правой стороне и задает размер */
 .navigation-user {
   justify-content: end;
   width: 140px;
-  margin-left: auto;
 }
 
 /* задает размеры ссылкам в правой части */
@@ -511,6 +516,8 @@ img {
 /* выравнивает приветственное изображение */
 .hero-img {
   display: block;
+  width: 458px;
+  height: 352px;
   margin: 0 auto;
 }
 
@@ -524,6 +531,7 @@ img {
 /* добавляет отступ заголовку преимуществ */
 .advantages-lead {
   margin-bottom: 25px;
+  padding: 0 200px;
 }
 
 /* добавляет отступ описанию преимуществ */
@@ -571,6 +579,8 @@ img {
 /* выравнивает изображение карточки преимуществ */
 .advantages-img {
   display: block;
+  width: 800px;
+  height: 385px;
 }
 
 /* разворачивает контент каждой второй большой карточки при структуре (saturated/card/card/card...) */
@@ -608,6 +618,7 @@ img {
 /* задает отступ заголовку секции рекомендаций */
 .recommendations-lead {
   margin-bottom: 20px;
+  padding: 0 275px;
 }
 
 .recommendations-description {
@@ -682,6 +693,7 @@ img {
 /* задает отступ заголовку поиска гостиницы */
 .hotel-search-lead {
   margin-bottom: 20px;
+  padding: 0 275px;
 }
 
 /* добавляет отступ сверху, чтобы при переполнении и с тем же классом текст не слипался */
@@ -723,6 +735,7 @@ img {
 /* задает отступ заголовку рассылки */
 .newsletter-lead {
   margin-bottom: 20px;
+  padding: 0 275px;
 }
 
 /* добавляет отступ сверху, чтобы при переполнении и с тем же классом текст не слипался */
@@ -857,8 +870,9 @@ img {
 
 /* назначает стили ссылке номера телефона */
 .phone-link {
+  padding: 5px;
   font-size: 40px;
-  line-height: 50px;
+  line-height: 40px;
   text-decoration: none;
   text-transform: uppercase;
   color: #000000;
@@ -890,6 +904,8 @@ img {
 /* задает display логотипу партнеров */
 .academy-logo {
   display: block;
+  width: 115px;
+  height: 33px;
   fill: #000000;
 }
 
@@ -1020,6 +1036,10 @@ img {
   list-style: none;
 }
 
+.catalog-filter-list:not(:last-child) {
+  margin-bottom: 16px;
+}
+
 .catalog-filter-item:not(:last-child) {
   margin-bottom: 16px;
 }
@@ -1139,17 +1159,21 @@ img {
   width: 288px;
 }
 
+.price-inputs {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 36px;
+}
+
 /* соединяет поля ввода цены */
 .position-wrapper {
   position: relative;
-  display: inline-block;
 }
 
 /* описывает стили поля для ввода цены */
 .price-input {
   display: block;
   width: 143px;
-  margin-right: -3px;
   padding-right: 51px;
   border-radius: 4px 0 0 4px;
 }
@@ -1177,9 +1201,8 @@ img {
 .like-placeholder {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 20px;
   transform: translateY(-50%);
-  margin-right: 17px;
   font-size: 18px;
   line-height: 24px;
   text-transform: lowercase;
@@ -1239,9 +1262,10 @@ img {
 .catalog-filter-buttons {
   display: grid;
   grid-template-rows: minmax(36px, auto);
+  align-content: start;
   gap: 32px;
   width: 191px;
-  margin-top: auto;
+  margin-top: 56px;
 }
 
 .catalog-filter-buttons button {
@@ -1275,8 +1299,7 @@ img {
 .control-select {
   width: 292px;
   height: 49px;
-  white-space: initial;
-  padding: 0 20px;
+  padding: 0 40px 0 18px;
   padding-right: 40px;
   font-family: inherit;
   font-size: 18px;
@@ -1333,54 +1356,42 @@ img {
   border-color: #000000;
 }
 
-/* создает и позиционирует псевдоэлемент с иконкой таблиц */
+/* создает и позиционирует псевдоэлемент */
+.sorting-option-link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* добавляет иконку таблиц */
 .display-table::before {
-  content: "";
-  position: absolute;
-  top: 16px;
-  left: 14px;
-  width: 16px;
-  height: 14px;
   background-image: url("../images/interface/table.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
-/* создает и позиционирует псевдоэлемент с иконкой карточки */
+/* добавляет иконку карточки */
 .display-cards::before {
-  content: "";
-  position: absolute;
-  top: 16px;
-  left: 14px;
-  width: 16px;
-  height: 14px;
   background-image: url("../images/interface/card.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
-/* создает и позиционирует псевдоэлемент с иконкой списка */
+/* добавляет иконку списка */
 .display-list::before {
-  content: "";
-  position: absolute;
-  top: 16px;
-  left: 14px;
-  width: 16px;
-  height: 14px;
   background-image: url("../images/interface/list.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 /* оформляет и описывает список отелей гридом */
 .hotel-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 340px);
-  gap: 20px;
-  margin: 0;
+  grid-template-columns: repeat(auto-fit, 342px);
+  gap: 18px;
+  margin: -1px;
+  margin-bottom: 0;
   padding: 0;
   list-style: none;
 }
@@ -1388,8 +1399,8 @@ img {
 /* оформляет карточку */
 /* карточка сохранит размеры, если контента станет меньше */
 .hotel-card {
-  display: grid;
-  grid-template-rows: 212px auto 21px 36px 36px;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
   padding: 20px;
   border: 1px solid #e6e6e6;
@@ -1420,6 +1431,8 @@ img {
 /* задает display картинке отеля в карточке */
 .hotel-card-img {
   display: block;
+  width: 300px;
+  height: 212px;
 }
 
 /* обнуляет браузерные отступы параграфов в картах */
@@ -1447,19 +1460,28 @@ img {
   text-align: end;
 }
 
+.hotel-card-buttons {
+  align-items: start;
+}
+
 /* описывает кнопочные стили в карточке отеля флексом для выравнивания */
 .hotel-card .button {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 36px;
-  padding: 0;
+  padding: 8px 10px;
+}
+
+.hotel-quality {
+  align-items: center;
 }
 
 /* описывает флекс-контейнер, в котором звёздочки, выравнивает псевдоэлементы */
 .hotel-stars {
-  display: flex;
-  align-items: center;
+  width: 140px;
+  height: 36px;
+  padding-top: 10px;
 }
 
 /* описывает псевдоэлемент с иконкой звездочки */
@@ -1500,7 +1522,8 @@ img {
 }
 
 /* описывает стили для параграфа с рейтингом места размещения */
-.hotel-rating {
+.hotel-quality .hotel-rating {
+  padding-top: 9px;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -1520,7 +1543,8 @@ img {
   content: "";
   width: 100%;
   height: 1px;
-  margin: 39px 0;
+  margin-top: 40px;
+  margin-bottom: 39px;
   background-color: #e6e6e6;
 }
 
@@ -1539,9 +1563,9 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
-  width: 60px;
-  padding: 0;
+  min-width: 60px;
+  min-height: 60px;
+  padding: 10px;
 }
 
 /* описывает стили для текущей ссылки пагинации */
