@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Гостиницы Седоны</title>
   </head>
   <body>
     <div class="page-container">
       <header class="page-header" data-test="header">
-        <a class="logo-link" href="index.html">
+        <a class="logo-link" href="index.html" tabindex="-1">
           <img class="logo" src="images/logo-sedona.svg" width="140" height="70" alt="Логотип сайта.">
         </a>
         <nav class="navigation">
@@ -64,17 +66,20 @@
               <ul class="catalog-filter-list checkbox">
                 <li class="catalog-filter-item">
                   <label class="control-label">
-                    <input class="control-input" type="checkbox" name="pool" checked>Бассейн
+                    <input class="control-input" type="checkbox" name="pool" checked>
+                    <span class="label-wrapper-word">Бассейн</span>
                   </label>
                 </li>
                 <li class="catalog-filter-item">
                   <label class="control-label">
-                    <input class="control-input" type="checkbox" name="parking" checked>Парковка
+                    <input class="control-input" type="checkbox" name="parking" checked>
+                    <span class="label-wrapper-word">Парковка</span>
                   </label>
                 </li>
                 <li class="catalog-filter-item">
                   <label class="control-label">
-                    <input class="control-input" type="checkbox" name="wi-fi">Wi-Fi
+                    <input class="control-input" type="checkbox" name="wi-fi">
+                    <span class="label-wrapper-word">Wi-Fi</span>
                   </label>
                 </li>
               </ul>
@@ -84,17 +89,20 @@
               <ul class="catalog-filter-list radio">
                 <li class="catalog-filter-item">
                   <label class="control-label">
-                    <input class="control-input" type="radio" name="accommodation" value="hotel" checked>Гостиница
+                    <input class="control-input" type="radio" name="accommodation" value="hotel" checked>
+                    <span class="label-wrapper-word">Гостиница</span>
                   </label>
                 </li>
                 <li class="catalog-filter-item">
                   <label class="control-label">
-                    <input class="control-input" type="radio" name="accommodation" value="motel">Мотель
+                    <input class="control-input" type="radio" name="accommodation" value="motel">
+                    <span class="label-wrapper-word">Мотель</span>
                   </label>
                 </li>
                 <li class="catalog-filter-item">
                   <label class="control-label">
-                    <input class="control-input" type="radio" name="accommodation" value="apartments">Апартаменты
+                    <input class="control-input" type="radio" name="accommodation" value="apartments">
+                    <span class="label-wrapper-word">Апартаменты</span>
                   </label>
                 </li>
               </ul>
@@ -174,7 +182,7 @@
               </p>
               <div class="hotel-card-buttons">
                 <a class="button button-main" href="#">Подробнее</a>
-                <a class="button button-brand">В избранноe</a>
+                <a class="button button-brand" href="#">В избранноe</a>
               </div>
               <div class="hotel-quality">
                 <p class="hotel-stars hotel-stars-4">
@@ -197,7 +205,7 @@
               </p>
               <div class="hotel-card-buttons">
                 <a class="button button-main" href="#">Подробнее</a>
-                <a class="button button-applied">В избранном</a>
+                <a class="button button-applied" href="#">В избранном</a>
               </div>
               <div class="hotel-quality">
                 <p class="hotel-stars hotel-stars-4">
@@ -220,7 +228,7 @@
               </p>
               <div class="hotel-card-buttons">
                 <a class="button button-main" href="#">Подробнее</a>
-                <a class="button button-brand">В избранное</a>
+                <a class="button button-brand" href="#">В избранное</a>
               </div>
               <div class="hotel-quality">
                 <p class="hotel-stars hotel-stars-3">
@@ -243,7 +251,7 @@
               </p>
               <div class="hotel-card-buttons">
                 <a class="button button-main" href="#">Подробнее</a>
-                <a class="button button-brand">В избранное</a>
+                <a class="button button-brand" href="#">В избранное</a>
               </div>
               <div class="hotel-quality">
                 <p class="hotel-stars hotel-stars-2">
@@ -266,7 +274,7 @@
                 <a class="pagination-link button button-brand button-weight" href="#">3</a>
               </li>
               <li>
-              <a class="pagination-link button button-brand button-weight" href="#">4</a>
+                <a class="pagination-link button button-brand button-weight" href="#">4</a>
               </li>
               <li>
                 <a class="pagination-link empty-pagination-link" title="Скрытые страницы">...</a>
@@ -282,7 +290,9 @@
       <footer class="page-footer">
         <section class="newsletter" data-test="subscribe">
           <h2 class="section-lead newsletter-lead">Подпишитесь на рассылку</h2>
-          <p class="section-description newsletter-description">Только полезная информация и никакого спама,<br> честное бойскаутское!</p>
+          <p class="section-description newsletter-description">Только полезная информация и никакого спама,
+            <br>честное бойскаутское!
+          </p>
           <form class="newsletter-form" action="https://echo.htmlacademy.ru/" method="post">
             <label for="subscribe">
               <span class="visually-hidden">Поле для ввода e-mail</span>
