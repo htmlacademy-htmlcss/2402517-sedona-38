@@ -521,7 +521,7 @@ img {
   min-height: 485px;
   padding: 51px 70px 82px;
   color: #ffffff;
-  background-color: #003905;
+  background-color: #7394aa;
   background-image: url("../images/hero-flag.svg"), url("../images/hero-background.jpg");
   background-size: contain, cover;
   background-repeat: no-repeat;
@@ -759,7 +759,7 @@ img {
 /* задает фон и цвет текста секции рассылки */
 .newsletter-background {
   color: #ffffff;
-  background-color: #425ad2;
+  background-color: #93aeb9;
   background-image: url("../images/subscribe-background.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -977,7 +977,7 @@ img {
 .catalog-header {
   padding: 35px 70px 70px;
   color: #ffffff;
-  background-color: #756157;
+  background-color: #697e8d;
   background-image: url("../images/filters-background.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -1577,6 +1577,15 @@ img {
 
 /* описывает кнопочные стили в карточке отеля флексом для выравнивания */
 .hotel-card .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   max-width: 140px;
   min-height: 36px;
   padding: 8px 10px;
