@@ -33,6 +33,7 @@ html {
 body {
   min-height: 100%;
   margin: 0;
+  padding: 0 40px;
   font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
