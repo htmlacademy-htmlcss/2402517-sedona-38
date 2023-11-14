@@ -159,12 +159,6 @@ img {
   background-color: #615048;
 }
 
-@supports not selector(:focus-visible) {
-  .button-main:focus {
-    background-color: #615048;
-  }
-}
-
 .button-main:not(:disabled):active {
   color: rgba(255, 255, 255, 0.3);
   background-color: #756157;
@@ -176,12 +170,6 @@ img {
   background-color: #68a2ca;
 }
 
-@supports not selector(:focus-visible) {
-  .button-brand:focus {
-    background-color: #68a2ca;
-  }
-}
-
 .button-brand:not(:disabled):active {
   color: rgba(255, 255, 255, 0.3);
   background-color: #82b3d3;
@@ -191,12 +179,6 @@ img {
 .button-applied:focus-visible,
 .button-applied:not(:disabled):hover {
   background-color: #6c9e42;
-}
-
-@supports not selector(:focus-visible) {
-  .button-applied:focus {
-    background-color: #6c9e42;
-  }
 }
 
 .button-applied:not(:disabled):active {
@@ -344,30 +326,6 @@ img {
   mask-size: contain;
 }
 
-@supports not selector(:focus-visible) {
-  .logo-link[href]:focus::before {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    width: 110%;
-    height: 110%;
-    background-color: rgba(117, 97, 87, 0.6);
-    -webkit-mask-image: url("../images/logo-sedona.svg");
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
-    mask-image: url("../images/logo-sedona.svg");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
-  }
-}
-
 .logo-link[href]:active::before {
   background-color: rgba(117, 97, 87, 0.3);
 }
@@ -428,12 +386,6 @@ img {
   outline-offset: -2px;
 }
 
-@supports not selector(:focus-visible) {
-  .navigation-link[href]:focus {
-    color: #756157;
-  }
-}
-
 .navigation-link[href]:hover {
   color: #756157;
 }
@@ -486,12 +438,6 @@ img {
 .navigation-user .navigation-link:focus-visible::before,
 .navigation-user .navigation-link:hover::before {
   background-color: #756257;
-}
-
-@supports not selector(:focus-visible) {
-  .navigation-user .navigation-link:focus::before {
-    background-color: #756257;
-  }
 }
 
 .navigation-user .navigation-link:active::before {
@@ -724,6 +670,9 @@ img {
 
 /* задает пространство карточке рекомендаций */
 .recommendations-item {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 80px 85px;
 }
 
@@ -917,12 +866,6 @@ img {
   background-color: #68a2ca;
 }
 
-@supports not selector(:focus-visible) {
-  .social-link:focus::before {
-    background-color: #68a2ca;
-  }
-}
-
 .social-link:active::before {
   background-color: rgba(104, 162, 202, 0.3);
 }
@@ -994,12 +937,6 @@ img {
   color: #756157;
 }
 
-@supports not selector(:focus-visible) {
-  .phone-link:focus {
-    color: #756157;
-  }
-}
-
 .phone-link:active {
   color: rgba(117, 97, 87, 0.3);
 }
@@ -1027,12 +964,6 @@ img {
 .academy-link:focus-visible .academy-logo,
 .academy-link:hover .academy-logo {
   fill: #756157;
-}
-
-@supports not selector(:focus-visible) {
-  .academy-link:focus .academy-logo {
-    fill: #756157;
-  }
 }
 
 .academy-link:active .academy-logo{
@@ -1582,12 +1513,6 @@ img {
   color: #756157;
 }
 
-@supports not selector(:focus-visible) {
-  .hotel-link:focus {
-    color: #756157;
-  }
-}
-
 .hotel-link:active {
   color: rgba(117, 97, 87, 0.3);
 }
@@ -1607,24 +1532,6 @@ img {
   height: 99%;
   -webkit-box-shadow: 0 0 6px 1px #756157;
           box-shadow: 0 0 6px 1px #756157;
-}
-
-@supports not selector(:focus-visible) {
-  .hotel-link-img:focus::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    -webkit-box-sizing: content-box;
-            box-sizing: content-box;
-    width: 99%;
-    height: 99%;
-    -webkit-box-shadow: 0 0 6px 1px #756157;
-            box-shadow: 0 0 6px 1px #756157;
-  }
 }
 
 .hotel-link-img:active::before {
@@ -1867,12 +1774,6 @@ img {
   background-color: #e6e6e6;
 }
 
-@supports not selector(:focus-visible) {
-  .button-modal-close:focus {
-    background-color: #e6e6e6;
-  }
-}
-
 .button-modal-close:not(:disabled):active::before {
   opacity: 0.3;
 }
@@ -2063,33 +1964,6 @@ img {
   height: 20px;
   border-radius: 4px;
   outline-style: auto;
-}
-
-@supports not selector(:focus-visible) {
-  .button-toggle:focus::before {
-    background-color: #000000;
-  }
-
-  .button-toggle:focus {
-    background-color: #e6e6e6;
-  }
-
-  /* добавляет обводку при фокусе */
-  .button-toggle:focus::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    -webkit-box-sizing: content-box;
-            box-sizing: content-box;
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    outline-style: auto;
-  }
 }
 
 .button-toggle:not(:disabled):hover::before {
