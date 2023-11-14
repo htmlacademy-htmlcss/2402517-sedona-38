@@ -1132,12 +1132,11 @@ img {
   top: 1px;
   left: 50%;
   transform: translateX(-50%);
-  width: 16px;
-  height: 19px;
+  width: 20px;
+  height: 20px;
   background-image: url("../images/interface/checkmark.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
 }
 
 /* превращает чекбокс в радиокнопку */
