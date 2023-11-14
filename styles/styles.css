@@ -504,6 +504,11 @@ img {
 /* ----- cтили для hero ----- */
 /* оформляет блок герой */
 .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 485px;
   padding: 51px 70px 82px;
   color: #ffffff;
   background-image: url("../images/hero-flag.svg"), url("../images/hero-background.jpg");
@@ -518,14 +523,13 @@ img {
   display: block;
   width: 458px;
   height: 352px;
-  margin: 0 auto;
 }
 
 /* ----- cтили для advantages -----  */
 /* задает пространство секции вводного текста преимуществ */
 /* padding блоку (вместо margin параграфу) для того, чтобы при добавлении текста, отступ между текстом и карточкой всегда не менялся */
-.advantages-text-container {
-  padding: 69px 70px;
+.advantages {
+  padding-top: 69px;
 }
 
 /* добавляет отступ заголовку преимуществ */
@@ -536,7 +540,8 @@ img {
 
 /* добавляет отступ описанию преимуществ */
 .advantages-description {
-  margin-bottom: 21px;
+  margin-bottom: 16px;
+  padding: 0 70px;
 }
 
 /* выравнивает список преимуществ, сбрасывает стили списка */
@@ -544,6 +549,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   margin: 0;
+  margin-top: 90px;
   padding: 0;
   list-style: none;
 }
@@ -559,8 +565,11 @@ img {
 }
 
 /* выравнивает карточку преимуществ с изображением, задает цвет текста и фона для карты */
+/* вложенность для повышения специфичности */
 .advantages-list .card-saturated {
   display: flex;
+  width: 100%;
+  align-items: center;
   color: #ffffff;
   background-color: #82b3d3;
 }
@@ -611,18 +620,19 @@ img {
 
 /* ----- cтили для recommendations ----- */
 /* задает пространство в блоке рекомендаций */
-.recommendations-text-container {
-  padding: 64px 70px;
+.recommendations {
+  padding-top: 64px;
 }
 
 /* задает отступ заголовку секции рекомендаций */
 .recommendations-lead {
   margin-bottom: 20px;
-  padding: 0 275px;
+  padding: 0 200px;
 }
 
 .recommendations-description {
-  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 0 70px;
 }
 
 /* выравнивает список рекомендаций и обнуляет браузерные стили */
@@ -630,6 +640,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   margin: 0;
+  margin-top: 64px;
   padding: 0;
   list-style: none;
 }
@@ -693,12 +704,12 @@ img {
 /* задает отступ заголовку поиска гостиницы */
 .hotel-search-lead {
   margin-bottom: 20px;
-  padding: 0 275px;
+  padding: 0 130px;
 }
 
-/* добавляет отступ сверху, чтобы при переполнении и с тем же классом текст не слипался */
+/* добавляет отступ снизу, чтобы при переполнении и с тем же классом текст не слипался */
 .hotel-search-descroption {
-  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 /* задает display и отступ кнопке поиска гостиниц */
@@ -735,12 +746,12 @@ img {
 /* задает отступ заголовку рассылки */
 .newsletter-lead {
   margin-bottom: 20px;
-  padding: 0 275px;
+  padding: 0 130px;
 }
 
-/* добавляет отступ сверху, чтобы при переполнении и с тем же классом текст не слипался */
+/* добавляет отступ снизу, чтобы при переполнении и с тем же классом текст не слипался */
 .newsletter-description {
-  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 /* задает display и отступ формы */
@@ -1036,18 +1047,17 @@ img {
   list-style: none;
 }
 
-.catalog-filter-list:not(:last-child) {
-  margin-bottom: 16px;
-}
-
+.catalog-filter-list:not(:last-child),
 .catalog-filter-item:not(:last-child) {
   margin-bottom: 16px;
 }
 
-.control {
+.control-label {
   display: flex;
   align-items: center;
   gap: 16px;
+  font-size: 18px;
+  line-height: 23px;
 }
 
 /* выравнивает правую сторону фильтров */
@@ -1083,12 +1093,6 @@ img {
   max-width: 288px;
 }
 
-/* описывает стили для лейбла чекбокса */
-.control {
-  font-size: 18px;
-  line-height: 23px;
-}
-
 /* описывает, позиционирует чекбокс */
 .control-input {
   position: relative;
@@ -1107,17 +1111,17 @@ img {
 }
 
 /* при отключении инпута нужно добавить этот класс лейблу */
-.control-disabled {
+.control-label-disabled {
   color: rgba(255, 255, 255, 0.1);
 }
 
 /* наведение */
-.control:not(.control-disabled):hover {
+.control-label:not(.control-label-disabled):hover {
   opacity: 0.6;
 }
 
 /* нажатие */
-.control:not(.control-disabled):active {
+.control-label:not(.control-label-disabled):active {
   opacity: 0.3;
 }
 
@@ -1409,6 +1413,7 @@ img {
 
 /* отменяет браузерные стили */
 .hotel-link {
+  position: relative;
   text-decoration: none;
   color: #000000;
 }
@@ -1426,6 +1431,37 @@ img {
 
 .hotel-link:active {
   color: rgba(117, 97, 87, 0.3);
+}
+
+.hotel-link-img:focus-visible::before,
+.hotel-link-img:hover::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: content-box;
+  width: 99%;
+  height: 99%;
+  box-shadow: 0 0 6px 1px #756157;
+}
+
+@supports not selector(:focus-visible) {
+  .hotel-link-img:focus::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: content-box;
+    width: 99%;
+    height: 99%;
+    box-shadow: 0 0 6px 1px #756157;
+  }
+}
+
+.hotel-link-img:active::before {
+  box-shadow: 0 0 5px 1px rgba(117, 97, 87, 0.6);
 }
 
 /* задает display картинке отеля в карточке */
@@ -1458,10 +1494,6 @@ img {
 
 .accommodation-price {
   text-align: end;
-}
-
-.hotel-card-buttons {
-  align-items: start;
 }
 
 /* описывает кнопочные стили в карточке отеля флексом для выравнивания */
@@ -1522,6 +1554,7 @@ img {
 }
 
 /* описывает стили для параграфа с рейтингом места размещения */
+/* вложенность для специфичности */
 .hotel-quality .hotel-rating {
   padding-top: 9px;
   font-size: 16px;
