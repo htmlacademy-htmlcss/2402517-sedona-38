@@ -724,6 +724,9 @@ img {
 
 /* задает пространство карточке рекомендаций */
 .recommendations-item {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 80px 85px;
 }
 
